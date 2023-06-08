@@ -1,5 +1,5 @@
 export class CreatePoolDto {
-    readonly amount: string
+    readonly amount: string;
     readonly address: string;
     readonly tokenId: number;
     readonly maxAmount: number;
