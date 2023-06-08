@@ -1,0 +1,219 @@
+.PoolDetails {
+    background-image: url("../../../images/pool-details/background.png");
+    height: 1350px;
+    display: flex;
+
+    &-Main {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &_Data {
+            margin-top: 14px;
+            align-self: flex-start;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .JoinedMainIcon {
+                margin-left: 80px;
+            }
+
+            .PoolData {
+                margin-right: 40px;
+                display: flex;
+                flex-direction: column;
+                gap: 27px;
+
+                &-Detail {
+                    align-items: center;
+
+                    &_AddressLabel {
+                        font-size: 40px;
+                        font-weight: 400;
+                    }
+
+                    &_AddressValue {
+                        color: #156464;
+                        border: 0.5px solid #156464;
+                        border-radius: 18px;
+                    }
+
+                    &_Label {
+                        font-size: 22px;
+                        font-weight: 500;
+                    }
+
+                    &_Value {
+                        color: #156464;
+                        background-color: rgba(21, 100, 100, 0.32);
+                        border-radius: 18px;
+                    }
+                }
+            }
+
+            .JoinedPoolData {
+                margin-top: -70px;
+                margin-right: 40px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .ProposalsContainer {
+                    margin-top: 67px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+
+                    .Header {
+                        width: 504px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 0 30px;
+
+                        .HeadingLabel {
+                            color: #64b3ae;
+                            font-weight: 600;
+                            font-size: 30px;
+                            cursor: pointer;
+                        }
+
+                        .SeeAllLabel {
+                            color: #64b3ae;
+                            font-size: 18px;
+                            font-weight: 500;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .Main {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: flex-start;
+                        gap: 10px;
+
+                        .ProposalDetails {
+                            background: rgba(100, 179, 174, 0.15);
+                            box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.25);
+                            border-radius: 15px;
+                            width: 504px;
+                            padding: 15px 36px;
+                            display: flex;
+                            flex-direction: row;
+                            gap: 76px;
+                            cursor: pointer;
+
+                            .ProposalWrapper {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: flex-start;
+
+                                .ProposalContent {
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: flex-start;
+                                    justify-content: flex-start;
+
+                                    .ProposalHeader {
+                                        color: #cce9e7;
+                                        font-weight: 600;
+                                        font-size: 21.3462px;
+                                    }
+
+                                    .ProposalStatus {
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        justify-content: flex-start;
+                                        gap: 17px;
+
+                                        .Status {
+                                            color: #6ca78a;
+                                            font-weight: 500;
+                                            font-size: 18px;
+                                        }
+
+                                        .Vote {
+                                            color: rgba(100, 179, 174, 0.15);
+                                            font-weight: 500;
+                                            font-size: 18px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .ToParticipate {
+                margin-right: 40px;
+                margin-top: 37px;
+                background: #64b3ae;
+                border: 3.24313px solid #64b3ae;
+                box-shadow: 0px 6.48626px 40.5391px rgba(0, 0, 0, 0.55);
+                border-radius: 16.2156px;
+                font-size: 24.3235px;
+                color: #cce9e7;
+                padding: 6px 28px;
+                cursor: pointer;
+            }
+        }
+
+        &_DisabledChat {
+            align-self: flex-end;
+            margin-bottom: 40px;
+        }
+    }
+}
+
+.ParticipantPopup {
+    width: 335px;
+    height: 190px;
+    background-color: #111111;
+    border-radius: 20px;
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    box-shadow: 0px 4px 43px rgba(0, 0, 0, 0.6);
+    margin-right: 50px;
+    margin-top: -150px;
+
+    .Header {
+        color: #64b3ae;
+        font-weight: 500;
+        font-size: 22.5611px;
+    }
+
+    .AmountInput {
+        font-size: 13px;
+        margin-top: 15px;
+        background: rgba(100, 179, 174, 0.15);
+        background-image: url("../../../images/pool-details/send-amount.png");
+        background-repeat: no-repeat;
+        background-position: 235px;
+        border-radius: 15px;
+        padding: 14px 16px;
+        color: #64b3ae;
+
+        &::placeholder {
+            color: #64b3ae;
+        }
+    }
+
+    .AgreeButton {
+        align-self: flex-end;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,126 @@
+.Chat {
+    display: flex;
+    align-items: center;
+    width: 678px;
+    height: 934px;
+
+    &-Wrapper {
+        width: 632px;
+        height: 884px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &-Header {
+        background: rgba(100, 179, 174, 0.15);
+        box-shadow: 0px 4px 43px rgba(0, 0, 0, 0.6);
+        border-radius: 25px;
+        font-weight: 700;
+        font-size: 22.3194px;
+        padding: 12px;
+        color: #64B3AE;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 25px;
+
+        &Participants {
+            color: #64B3AE;
+            font-weight: 700;
+            font-size: 22.3194px;
+        }
+    }
+
+    &-Main {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: end;
+        gap: 17px;
+        overflow-y: scroll;
+        padding: 10px 5px;
+        flex: 1;
+
+        .Message {
+            display: flex;
+            flex-direction: column;
+            padding: 15px 24px 15px 50px;
+
+            &.Mine {
+                background: rgba(100, 179, 174, 0.15);
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+                border-radius: 25px;
+                align-self: flex-end;
+                align-items: flex-end;
+
+                .MessageHeader {
+                    flex-direction: row-reverse;
+                }
+
+                .MessageSentTime {
+                    color: #156464;
+                }
+
+                .MessageContent {
+                    color: #64B3AE;
+                }
+            }
+
+            &.NotMine {
+                background: #111111;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+                border-radius: 25px;
+                align-self: flex-start;
+
+                .MessageSentTime {
+                    color: rgba(100, 179, 174, 0.15);
+                }
+
+                .MessageContent {
+                    color: rgba(204, 233, 231, 0.67);
+                }
+            }
+
+            &Header {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 13px;
+            }
+
+            &Sender {
+                color: #64B3AE;
+                font-weight: 600;
+                font-size: 22.3194px;
+            }
+
+            &SentTime {
+                font-weight: 400;
+                font-size: 19.1311px;
+            }
+
+            &Content {
+                font-weight: 400;
+                font-size: 22.3194px;
+            }
+        }
+    }
+
+    &-Input {
+        .Input {
+            width: 632px;
+            background: rgba(100, 179, 174, 0.15);
+            background-image: url('../../images/pool-details/send-message.png');
+            background-repeat: no-repeat;
+            background-position: 550px;
+            box-shadow: 0px 4px 43px rgba(0, 0, 0, 0.6);
+            border-radius: 28px;
+            padding: 23px 31px;
+            color: #CCE9E7;
+
+            &::placeholder {
+                color: #CCE9E7;
+            }
+        }
+    }
+}

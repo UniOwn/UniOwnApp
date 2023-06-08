@@ -1,0 +1,66 @@
+.App {
+    background-image: url('../../images/pools/background.png');
+    height: 1360px;
+
+    &-Header {
+        min-width: 100%;
+        height: 120px;
+        padding: 40px 92px;
+
+        &_Content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &_Controls {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+
+            .MenuItem {
+                color: #FFFFFF;
+                cursor: pointer;
+                font-weight: 100;
+                font-size: 14px;
+
+                &.current {
+                    font-weight: 1000;
+                }
+            }
+
+            .MetamaskConnected {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 7px;
+                border: 1px solid #CCE9E7;
+                padding: 7px 14px;
+                border-radius: 11px;
+
+
+                .Address {
+                    font-size: 13px;
+                    color: #CCE9E7;
+                    font-weight: 500;
+                }
+            }
+
+            .MetamaskDisconnected {
+                cursor: pointer;
+                background-color: #CCE9E7;
+                font-size: 13px;
+                color: #111111;
+                padding: 7px 14px;
+                border-radius: 11px;
+            }
+        }
+    }
+}
+
+.ml-50 {
+    margin-left: 60px;
+}

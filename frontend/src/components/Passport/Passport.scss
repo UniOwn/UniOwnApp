@@ -1,0 +1,20 @@
+.Passport {
+    background-image: url(../../images/passport/passport-profile-background.png);
+    height: 1350px;
+
+    .MintNow {
+        border: 1px solid #ffffff;
+        border-radius: 10px;
+        width: 180px;
+        padding: 15px 53px;
+        color: #ffffff;
+        position: absolute;
+        left: calc(51% - 82px / 2 + 0.5px);
+        top: calc(30% - 21px / 2 + 0.55px);
+        cursor: pointer;
+
+        .ms-Spinner--medium {
+            border-color: #6CA78A rgb(199, 224, 244) rgb(199, 224, 244);
+        }
+    }
+}
