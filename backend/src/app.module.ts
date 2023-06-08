@@ -1,12 +1,20 @@
-import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { PoolsModule } from './pools/pools.module';
+import { Module } from "@nestjs/common";
+import { ConfigModule } from "@nestjs/config";
+import { MongooseModule } from "@nestjs/mongoose";
+
+import { AppController } from "./app.controller";
+import { AppService } from "./app.service";
+import { PoolsModule } from "./pools/pools.module";
 
 @Module({
-  imports: [PoolsModule, MongooseModule.forRoot(`mongodb+srv://grigorenkoad:YxiboKLFu5YS4huD@cluster0.parij19.mongodb.net/?retryWrites=true&w=majority`)],
-  controllers: [AppController],
-  providers: [AppService],
+    imports: [
+        ConfigModule.forRoot({
+            envFilePath: [".env.development.local"]
+        }),
+        PoolsModule,
+        MongooseModule.forRoot(process.env.MONGODB_CONNECTION_STRING)
+    ],
+    controllers: [AppController],
+    providers: [AppService]
 })
 export class AppModule {}

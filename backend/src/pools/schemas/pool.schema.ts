@@ -1,13 +1,12 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
 
-export type PoolDocument = Pool & Document
+export type PoolDocument = Pool & Document;
 
 @Schema()
 export class Pool {
-
     @Prop()
-    amount: string
+    amount: string;
 
     @Prop()
     address: string;
@@ -41,7 +40,6 @@ export class Pool {
 
     @Prop()
     poolSuccessful: boolean;
-
 }
 
-export const PoolSchema = SchemaFactory.createForClass(Pool)
+export const PoolSchema = SchemaFactory.createForClass(Pool);
