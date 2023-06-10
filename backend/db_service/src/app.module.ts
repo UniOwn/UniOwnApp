@@ -4,7 +4,7 @@ import { MongooseModule } from "@nestjs/mongoose";
 
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
-import { PoolsModule } from "./db_service/pools/pools.module";
+import { PoolsModule } from "./pools/pools.module";
 
 @Module({
     imports: [
