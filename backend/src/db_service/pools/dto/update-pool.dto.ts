@@ -1,4 +1,4 @@
-export class CreatePoolDto {
+export class UpdatePoolDto {
     readonly amount: string;
     readonly address: string;
     readonly tokenId: number;
@@ -7,7 +7,7 @@ export class CreatePoolDto {
     readonly endTime: number;
     readonly minParticipation: number;
     readonly itemId: number;
-    //readonly collection: string;
+    readonly nftAddress: string;
     readonly marketplace: string;
     readonly poolFinished: boolean;
     readonly poolSuccessful: boolean;
