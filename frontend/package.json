@@ -12,11 +12,15 @@
     "@types/node": "20.2.5",
     "@types/react": "18.2.8",
     "@types/react-dom": "18.2.4",
+    "@usedapp/core": "^1.2.10",
+    "ethers": "^5.7.2",
+    "ethers-multicall": "^0.2.3",
     "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "classnames": "^2.3.2",
     "dotenv": "^16.1.4",
     "eslint": "^8.42.0",
     "eslint-config-next": "13.4.4",

@@ -5,6 +5,7 @@
         "plugin:react/recommended",
         "plugin:prettier/recommended"
     ],
+    "plugins": ["react-hooks", "prettier"],
     "rules": {
         "no-undef": 0,
         "no-debugger": "error",
