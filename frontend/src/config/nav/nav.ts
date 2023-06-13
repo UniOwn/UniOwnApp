@@ -7,7 +7,7 @@ interface INav {
 
 const nav: INav[] = [
     {
-        path: routes.app,
+        path: routes.home,
         title: "Pools"
     },
     {

@@ -1,7 +1,8 @@
-import { formatUnits } from "ethers/lib/utils";
+import { formatUnits } from "ethers";
+
 import { UserIds } from "../config/userIds";
 
-export const getShortAddress = (account: string): string => `${account.slice(0, 4)}...${account.slice(account.length - 4)}`;
+export const getShortAddress = (account: string | undefined): string => `${account?.slice(0, 4)}...${account?.slice(account?.length - 4)}`;
 export const formatHexIntoDecimal = (hex: number): number => parseInt(formatUnits(hex, 16));
 export const formatHexIntoDate = (hex: number): number => parseInt(formatUnits(hex, 0));
 export const formatCreatedAtMessageDate = (ticks: number): string => {
@@ -17,6 +18,8 @@ export const formatCreatedAtMessageDate = (ticks: number): string => {
         return `${date.getDate()}d`;
     }
 };
+
+export const parseEnvVariable = (variable: string | undefined) => variable || "";
 
 const names = {
     [UserIds.internal_user_id1.toString()]: "Man13",
