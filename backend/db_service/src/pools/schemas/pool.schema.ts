@@ -29,8 +29,8 @@ export class Pool {
     @Prop()
     itemId: number;
 
-    // @Prop()
-    // collection: string;
+    @Prop()
+    nftAddress: string;
 
     @Prop()
     marketplace: string;
