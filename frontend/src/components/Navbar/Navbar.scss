@@ -1,0 +1,17 @@
+.Navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+
+    .MenuItem {
+        color: #ffffff;
+        cursor: pointer;
+        font-weight: 100;
+        font-size: 14px;
+
+        &.current {
+            font-weight: 1000;
+        }
+    }
+}

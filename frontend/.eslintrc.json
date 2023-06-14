@@ -5,7 +5,9 @@
         "plugin:react/recommended",
         "plugin:prettier/recommended"
     ],
+    "plugins": ["react-hooks", "prettier"],
     "rules": {
+        "no-undef": 0,
         "no-debugger": "error",
         "brace-style": "error",
         "block-spacing": "error",
