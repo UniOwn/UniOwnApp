@@ -30,9 +30,6 @@ export class User {
     phone?: string[] | null;
 
     @Prop()
-    custom?: { [name: string]: string };
-
-    @Prop()
     availabilityText?: string;
 
     @Prop()
@@ -42,7 +39,7 @@ export class User {
     createdAt: number;
 
     @Prop()
-    pushTokens: { [token_id: string]: true | null } | null;
+    pushTokens?: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
