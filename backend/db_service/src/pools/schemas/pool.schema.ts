@@ -40,6 +40,9 @@ export class Pool {
 
     @Prop()
     poolSuccessful: boolean;
+
+    @Prop()
+    proposalId: string;
 }
 
 export const PoolSchema = SchemaFactory.createForClass(Pool);
