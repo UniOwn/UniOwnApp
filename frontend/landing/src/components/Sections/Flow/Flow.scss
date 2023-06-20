@@ -1,0 +1,113 @@
+.FlowSection {
+    margin-top: 139px;
+
+    &-Flows {
+        width: inherit;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        .Flow {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 20px;
+            opacity: 0;
+
+            @for $i from 0 through 2 {
+                &.Phase#{$i + 1} {
+                    &.in-view {
+                        opacity: 1;
+                        transition: opacity 0.5s ease-in #{$i + "s"};
+                    }
+                }
+            }
+
+            &Label {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: flex-start;
+                gap: 10px;
+
+                &-Text {
+                    font-weight: 600;
+                    font-size: 35px;
+                    line-height: 53px;
+                }
+
+                &-Image {
+
+                }
+            }
+
+            &Description {
+                font-weight: 400;
+                font-size: 16px;
+                max-width: 192px;
+
+                &.w-third {
+                    max-width: 248px;
+                }
+            }
+
+            &AdditionalInfo {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                opacity: 0.6;
+            }
+        }
+
+        .DividerWrapper {
+            opacity: 0;
+
+            @for $i from 0 through 1 {
+                &.Divider#{$i + 1} {
+                    &.in-view {
+                        opacity: 1;
+                        transition: opacity 0.5s ease-in #{($i + 0.5) + "s"};
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .FlowSection {
+        margin-top: 70px;
+
+        &-Flows {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 20px;
+
+            .Flow {
+                &Label {
+                    font-weight: 600;
+                    font-size: 18px;
+                    line-height: 25px;
+                }
+
+                &Description {
+                    font-weight: 400;
+                    font-size: 14px;
+                    max-width: 192px;
+
+                    &.w-third {
+                        max-width: 248px;
+                    }
+                }
+            }
+
+            .DividerWrapper {
+                margin-top: 0;
+            }
+        }
+    }
+}

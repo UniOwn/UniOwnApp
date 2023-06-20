@@ -1,0 +1,26 @@
+.DividerWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    align-self: center;
+    gap: 10px;
+
+    &.row {
+        flex-direction: row;
+    }
+
+    &.column {
+        flex-direction: column;
+    }
+
+    @for $i from 0 through 4 {
+        &-Dot#{$i + 1} {
+            opacity: 0;
+
+            &_in-view {
+                opacity: 1 - (1 / 10) * $i;
+                transition: opacity 0.5s ease-in #{($i * 0.5) + 's'};
+            }
+        }
+    }
+}

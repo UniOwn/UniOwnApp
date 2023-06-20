@@ -1,0 +1,116 @@
+.TargetsSection {
+    margin-top: 312px;
+    position: relative;
+
+    &-SideBackground {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    &-Benefits {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-end;
+        width: inherit;
+        gap: 132px;
+
+        .Benefit {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 12px;
+
+            &Label {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: flex-start;
+                gap: 5px;
+                opacity: 0;
+
+                &-Text {
+                    font-weight: 600;
+                    font-size: 25px;
+                    line-height: 70px;
+                }
+
+                &-Image {
+                }
+
+                &.in-view {
+                    opacity: 1;
+                    transition: opacity 1s ease-in;
+                }
+            }
+
+            &Details {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 96px;
+
+                &-Items {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    gap: 8px;
+                    max-width: 258px;
+
+                    &_description {
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 22px;
+
+                        @for $i from 0 through 4 {
+                            &-item#{$i + 1} {
+                                opacity: 0;
+
+                                &-in-view {
+                                    opacity: 1 - (1 / 10) * $i;
+                                    transition: opacity 0.5s ease-in #{($i * 0.5) + "s"};
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .TargetsSection {
+        margin-top: 150px;
+
+        &-Benefits {
+            flex-direction: column;
+            width: inherit;
+            gap: 60px;
+
+            .Benefit {
+                &-Label {
+                    font-weight: 600;
+                    font-size: 17px;
+                    line-height: 30px;
+                }
+
+                &Details {
+                    justify-content: space-between;
+
+                    &-Items {
+                        &_description {
+                            font-size: 14px;
+                            line-height: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

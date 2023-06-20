@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    background-color: #111111;
+    color: #ffffff;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.Landing-Page {
+    font-weight: 400;
+    margin-top: 140px;
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.Background-TopRight {
+    position: absolute;
+    right: 0;
+    top: 90px;
+    z-index: 0;
+    width: 1024px;
+    height: 771px;
+}
+
+.Background-TopLeft {
+    position: absolute;
+    left: 0;
+    top: 195px;
+    z-index: 0;
+    width: 364px;
+    height: 568px;
+}
+
+.Diamond-BottomRight {
+    position: absolute;
+    right: 0;
+    top: 1749px;
+    z-index: 0;
+    width: 300px;
+    height: 546px;
+}
+
+.SectionWrapper {
+    width: 100%;
+    padding: 0 158px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 110px;
+
+    &-Label {
+        font-weight: 600;
+        font-size: 45px;
+        line-height: 70px;
+        opacity: 0;
+
+        &.in-view {
+            opacity: 1;
+            transition: opacity 1s ease-in;
+        }
+    }
+}
+
+.op-8 {
+    opacity: 0.8;
+}
+
+.op-4 {
+    opacity: 0.4;
+}
+
+.MainDot {
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    border-radius: 5px;
+}
+
+@media (max-width: 1520px) {
+    .Background-TopRight {
+        width: 716px;
+        height: 540px;
+    }
+}
+
+@media (max-width: 500px) {
+    .Landing-Page {
+        margin-top: 100px;
+    }
+
+    .Background-TopRight {
+        width: 200px;
+        height: 280px;
+    }
+
+    .Background-TopLeft {
+        top: 220px;
+        width: 180px;
+        height: 260px;
+    }
+
+    .Diamond-BottomRight {
+        top: 1000px;
+        width: 150px;
+        height: 270px;
+    }
+
+    .SectionWrapper {
+        padding: 0 20px;
+        gap: 50px;
+
+        &-Label {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 30px;
+            opacity: 0;
+
+            &.active {
+                opacity: 1;
+                transition: opacity 1s ease-in;
+            }
+        }
+    }
+}

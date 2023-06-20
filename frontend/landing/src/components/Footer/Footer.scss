@@ -1,0 +1,108 @@
+.AppFooter {
+    margin-top: 80px;
+    min-width: 100%;
+    padding: 50px 158px;
+
+    &-Container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        &_logo {
+            cursor: default;
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            justify-content: flex-start;
+            gap: 15px;
+
+            .FooterLogo {
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 20px;
+            }
+
+            .FooterCurrentYear {
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 20px;
+            }
+        }
+
+        &_section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 32px;
+
+            &-header {
+                font-weight: 600;
+                font-size: 10px;
+                line-height: 24px;
+                text-transform: uppercase;
+            }
+
+            &-linkwrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 10px;
+
+                font-weight: 400;
+                font-size: 10px;
+                line-height: 24px;
+                text-transform: uppercase;
+
+                &-nolink {
+                    cursor: default;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .AppFooter {
+        margin-top: 60px;
+        padding: 50px 20px;
+
+        &-Container {
+            &_logo {
+                gap: 8px;
+
+                .FooterLogo {
+                    font-weight: 600;
+                    font-size: 10px;
+                    line-height: 18px;
+                }
+
+                .FooterCurrentYear {
+                    font-weight: 500;
+                    font-size: 8px;
+                    line-height: 18px;
+                }
+            }
+
+            &_section {
+                gap: 16px;
+
+                &-header {
+                    font-weight: 600;
+                    font-size: 10px;
+                    line-height: 20px;
+                }
+
+                &-linkwrapper {
+                    gap: 10px;
+
+                    font-weight: 400;
+                    font-size: 10px;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+}

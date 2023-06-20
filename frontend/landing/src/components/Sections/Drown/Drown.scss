@@ -1,0 +1,158 @@
+.DrownSection {
+    margin-top: 200px;
+
+    &-Container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: inherit;
+
+        &_details {
+            width: 554px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 18px;
+
+            .DrownHeader {
+                font-weight: 600;
+                font-size: 25px;
+                line-height: 30px;
+            }
+
+            .DrownDetail {
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 30px;
+                color: #dad2cf;
+                padding-top: 10px;
+
+                &-Icon {
+                    float: left;
+                    margin-top: -8px;
+                }
+
+                &.item1 {
+                    width: 382px !important;
+                }
+
+                &.item2 {
+                    width: 422px !important;
+                }
+
+                &.item3 {
+                    width: 410px !important;
+                }
+            }
+
+            .Slider {
+                width: 430px;
+
+                .Dot {
+                    cursor: pointer;
+                    border-radius: 6px;
+                }
+
+                .slick-active {
+                    .Dot {
+                        scale: 1.2;
+                        opacity: 1 !important;
+                        transition: scale 0.3s ease-in;
+                    }
+                }
+
+                &Dots {
+                    display: flex !important;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap: 10px;
+                    list-style: none;
+                    margin-top: 50px;
+                }
+            }
+        }
+
+        opacity: 0;
+
+        &.in-view {
+            opacity: 1;
+            transition: opacity 0.5s ease-in;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .DrownSection {
+        margin-top: 100px;
+
+        &-Container {
+            flex-direction: column;
+            gap: 20px;
+
+            &_details {
+                width: 390px;
+
+                .DrownHeader {
+                    font-weight: 600;
+                    font-size: 12px;
+                    line-height: 18px;
+                }
+
+                .DrownDetail {
+                    font-weight: 400;
+                    font-size: 10px;
+                    line-height: 15px;
+                    width: 270px;
+
+                    &.item1 {
+                        width: 270px !important;
+                    }
+
+                    &.item2 {
+                        width: 270px !important;
+                    }
+
+                    &.item3 {
+                        width: 270px !important;
+                    }
+                }
+
+                .Slider {
+                    margin-top: 10px;
+                    width: 280px;
+
+                    .Dot {
+                        cursor: pointer;
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 6px;
+                    }
+
+                    &Dots {
+                        display: flex !important;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: flex-start;
+                        gap: 10px;
+                        list-style: none;
+                        margin-top: 30px;
+                    }
+                }
+            }
+
+            &_logo {
+                position: relative;
+                margin-top: 0;
+                align-self: center;
+
+                .TwitterLink {
+                    width: 390px;
+                    height: 350px;
+                }
+            }
+        }
+    }
+}
