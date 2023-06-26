@@ -1,30 +1,67 @@
+@use "@/styles/_variables.scss" as constants;
+
 .DrownSection {
     &-Container {
         &_logo {
+            width: 704px;
+            height: 615px;
             position: relative;
             margin-top: -40px;
-
-            .TwitterLink {
-                width: 680px;
-                height: 620px;
-            }
         }
 
+        .TwitterLink {
+            position: absolute;
+            width: 704px;
+            height: 615px;
+        }
     }
 }
 
-@media (max-width: 500px) {
+@media screen and (min-width: #{constants.$medium + 1}) and (max-width: constants.$large) {
     .DrownSection {
         &-Container {
             &_logo {
-                position: relative;
+                width: 553px;
+                height: 483px;
+            }
+
+            .TwitterLink {
+                width: 553px;
+                height: 483px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
+    .DrownSection {
+        &-Container {
+            &_logo {
+                width: 36.6vw;
+                height: 34vw;
+            }
+
+            .TwitterLink {
+                width: 36.6vw;
+                height: 34.2vw;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
+    .DrownSection {
+        &-Container {
+            &_logo {
+                width: 64.05vw;
+                height: 48.65vw;
                 margin-top: 0;
                 align-self: center;
+            }
 
-                .TwitterLink {
-                    width: 390px;
-                    height: 350px;
-                }
+            .TwitterLink {
+                width: 64.05vw;
+                height: 48.65vw;
             }
         }
     }

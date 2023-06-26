@@ -1,3 +1,5 @@
+@use "@/styles/_variables.scss" as constants;
+
 .AppFooter {
     margin-top: 80px;
     min-width: 100%;
@@ -64,43 +66,117 @@
     }
 }
 
-@media (max-width: 500px) {
+@media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
     .AppFooter {
-        margin-top: 60px;
-        padding: 50px 20px;
+        margin-top: 5vw;
+        padding: 5vw 10vw;
 
         &-Container {
             &_logo {
-                gap: 8px;
+                gap: 1vw;
 
                 .FooterLogo {
-                    font-weight: 600;
-                    font-size: 10px;
-                    line-height: 18px;
+                    font-size: 1.35vw;
+                    line-height: 1.35vw;
                 }
 
                 .FooterCurrentYear {
-                    font-weight: 500;
-                    font-size: 8px;
-                    line-height: 18px;
+                    font-size: 1vw;
+                    line-height: 1.35vw;
                 }
             }
 
             &_section {
-                gap: 16px;
+                gap: 2vw;
 
                 &-header {
-                    font-weight: 600;
-                    font-size: 10px;
-                    line-height: 20px;
+                    font-size: 0.7vw;
+                    line-height: 1.5vw;
                 }
 
                 &-linkwrapper {
-                    gap: 10px;
+                    gap: 0.7vw;
 
-                    font-weight: 400;
+                    font-size: 0.7vw;
+                    line-height: 1.5vw;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xsmall) and (max-width: #{constants.$small - 1}) {
+    .AppFooter {
+        padding: 4vw 6.5vw;
+
+        &-Container {
+            &_logo {
+                gap: 2.5vw;
+
+                .FooterLogo {
+                    font-size: 18px;
+                    line-height: 12px;
+                }
+
+                .FooterCurrentYear {
+                    font-size: 12px;
+                    line-height: 16px;
+                }
+            }
+
+            &_section {
+                gap: 4vw;
+
+                &-header {
+                    font-size: 14px;
+                    line-height: 16px;
+                }
+
+                &-linkwrapper {
+                    gap: 2vw;
+
+                    font-size: 12px;
+                    line-height: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$xsmall - 1}) {
+    .AppFooter {
+        padding: 3vw 5vw;
+
+        &-Container {
+            justify-content: space-between;
+
+            &_logo {
+                flex-direction: column;
+                gap: 2.5vw;
+
+                .FooterLogo {
+                    font-size: 16px;
+                    line-height: 12px;
+                }
+
+                .FooterCurrentYear {
                     font-size: 10px;
-                    line-height: 20px;
+                    line-height: 16px;
+                }
+            }
+
+            &_section {
+
+                &-header {
+                    font-size: 14px;
+                    line-height: 16px;
+                }
+
+                &-linkwrapper {
+                    gap: 6vw;
+
+                    font-size: 12px;
+                    line-height: 14px;
                 }
             }
         }

@@ -1,3 +1,5 @@
+@use "_variables.scss" as constants;
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -17,6 +19,28 @@ a {
     text-decoration: none;
 }
 
+.Background-TopRight {
+    position: absolute;
+    right: 0;
+    top: 120px;
+    z-index: 0;
+    width: 652px;
+    height: 681px;
+}
+
+.Background-TopLeft {
+    position: absolute;
+    left: 0;
+    top: 400px;
+    z-index: 0;
+    width: 398px;
+    height: 592px;
+}
+
+.Background-Mobile {
+    display: none;
+}
+
 .Landing-Page {
     font-weight: 400;
     margin-top: 140px;
@@ -27,115 +51,116 @@ a {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+
+    .SectionWrapper {
+        width: 100%;
+        padding: 0 230px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 130px;
+
+        &-Label {
+            width: inherit;
+            font-weight: 600;
+            font-size: 45px;
+            line-height: 70px;
+            opacity: 0;
+
+            &.in-view {
+                opacity: 1;
+                transition: opacity 1s ease-in;
+            }
+        }
+    }
+
+    .op-8 {
+        opacity: 0.8;
+    }
+
+    .op-4 {
+        opacity: 0.4;
+    }
+
+    .MainDot {
+        width: 10px;
+        height: 10px;
+        background: #ffffff;
+        border-radius: 5px;
+    }
 }
 
-.Background-TopRight {
-    position: absolute;
-    right: 0;
-    top: 90px;
-    z-index: 0;
-    width: 1024px;
-    height: 771px;
-}
+@media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
+    .Background-TopRight {
+        width: 33.6vw;
+        height: 32.9vw;
+    }
 
-.Background-TopLeft {
-    position: absolute;
-    left: 0;
-    top: 195px;
-    z-index: 0;
-    width: 364px;
-    height: 568px;
-}
+    .Background-TopLeft {
+        top: 30vw;
+        width: 26.3vw;
+        height: 39.1vw;
+    }
 
-.Diamond-BottomRight {
-    position: absolute;
-    right: 0;
-    top: 1749px;
-    z-index: 0;
-    width: 300px;
-    height: 546px;
-}
+    .Landing-Page {
+        margin-top: 12vw;
 
-.SectionWrapper {
-    width: 100%;
-    padding: 0 158px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 110px;
+        .SectionWrapper {
+            padding: 0 9.5vw;
+            gap: 8.5vw;
 
-    &-Label {
-        font-weight: 600;
-        font-size: 45px;
-        line-height: 70px;
-        opacity: 0;
+            &-Label {
+                font-size: 3vw;
+                line-height: 4.6vw;
+            }
+        }
 
-        &.in-view {
-            opacity: 1;
-            transition: opacity 1s ease-in;
+        .MainDot {
+            width: 0.7vw;
+            height: 0.7vw;
+            border-radius: 0.35vw;
         }
     }
 }
 
-.op-8 {
-    opacity: 0.8;
-}
-
-.op-4 {
-    opacity: 0.4;
-}
-
-.MainDot {
-    width: 10px;
-    height: 10px;
-    background: #ffffff;
-    border-radius: 5px;
-}
-
-@media (max-width: 1520px) {
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
     .Background-TopRight {
-        width: 716px;
-        height: 540px;
-    }
-}
-
-@media (max-width: 500px) {
-    .Landing-Page {
-        margin-top: 100px;
-    }
-
-    .Background-TopRight {
-        width: 200px;
-        height: 280px;
+        display: none;
     }
 
     .Background-TopLeft {
-        top: 220px;
-        width: 180px;
-        height: 260px;
+        display: none;
     }
 
-    .Diamond-BottomRight {
-        top: 1000px;
-        width: 150px;
-        height: 270px;
+    .Background-Mobile {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 60vw;
+        z-index: 0;
+        width: 100%;
+        height: auto;
     }
 
-    .SectionWrapper {
-        padding: 0 20px;
-        gap: 50px;
+    .Landing-Page {
+        margin-top: 12vw;
 
-        &-Label {
-            font-weight: 600;
-            font-size: 20px;
-            line-height: 30px;
-            opacity: 0;
+        .SectionWrapper {
+            padding: 0 6.5vw;
+            gap: 10.5vw;
 
-            &.active {
+            &-Label {
                 opacity: 1;
-                transition: opacity 1s ease-in;
+                font-size: 4.2vw;
+                line-height: 4.6vw;
             }
+        }
+
+        .MainDot {
+            width: 2.1vw;
+            height: 2.1vw;
+            border-radius: 1.05vw;
         }
     }
 }

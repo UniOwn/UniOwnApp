@@ -8,7 +8,6 @@ interface IDividerProps {
     className?: string;
     flexDirection?: "row" | "column";
     gradientDirection: "left" | "right";
-    scrollable?: boolean;
     inView?: boolean;
 }
 

@@ -11,7 +11,7 @@ const Explore = () => {
     const { ref, inView } = useInView({ triggerOnce: true });
 
     return (
-        <section className="ExploreSection">
+        <section className={cn("ExploreSection", "desktop-only")}>
             <span ref={ref} className={cn("ExploreSection-Heading", misto.className, inView && "active")}>
                 explore
             </span>

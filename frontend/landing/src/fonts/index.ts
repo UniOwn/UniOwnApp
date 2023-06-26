@@ -40,7 +40,7 @@ const misto = localFont({
         {
             path: "./Misto.woff",
             weight: "600",
-            style: "regular"
+            style: "normal"
         }
     ]
 });

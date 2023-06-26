@@ -1,16 +1,22 @@
+import cn from "classnames";
 import Image from "next/image";
 
-import logo from "@/images/logo.png";
-import launch from "@/images/launch_button.png";
+import { kica } from "@/fonts";
 
+import Launch from "../Buttons/Launch/Launch";
+import logo from "../../../public/images/logo.png";
 import "./Header.scss";
 
 const Header = () => {
     return (
         <header className="AppHeader">
             <div className="AppHeader-Container">
-                <Image src={logo} alt="" quality={100} className="AppHeader-Container_logo" />
-                <Image src={launch} alt="" quality={100} className="AppHeader-Container_launch" />
+                <div className="AppHeader-Container_logo">
+                    <Image src={logo} alt="" sizes="100vw" className="AppHeader-Container_logo-image" />
+                    <pre className={cn("AppHeader-Container_logo-text desktop-only", kica.className)}>{`Uni \nOwn`}</pre>
+                    <div className={cn("AppHeader-Container_logo-text mobile-only", kica.className)}>Uni Own</div>
+                </div>
+                <Launch className="desktop-only" />
             </div>
         </header>
     );

@@ -1,8 +1,10 @@
+@use "@/styles/_variables.scss" as constants;
+
 .AppHeader {
     min-width: 100%;
     position: relative;
     z-index: 5;
-    padding: 28px 115px;
+    padding: 30px 135px;
 
     &-Container {
         display: flex;
@@ -11,32 +13,78 @@
         align-items: center;
 
         &_logo {
-            width: 125px;
-            height: 60px;
-        }
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 5px;
 
-        &_launch {
-            width: 130px;
-            height: 36px;
+            &-image {
+                width: 60px;
+                height: 60px;
+            }
+
+            &-text {
+                &.mobile-only {
+                    display: none;
+                }
+
+                font-size: 17px;
+                line-height: 18px;
+            }
         }
     }
 }
 
-@media (max-width: 500px) {
+@media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
     .AppHeader {
-        padding: 10px 30px;
+        padding: 1.9vw 7.5vw;
 
         &-Container {
-            padding: 0;
+            &_logo {
+                gap: 0.3vw;
+
+                &-image {
+                    width: 4vw;
+                    height: 4vw;
+                }
+
+                &-text {
+                    font-size: 1.1vw;
+                    line-height: 1.1vw;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
+    .AppHeader {
+        padding: 5vw 6.5vw;
+
+        &-Container {
+            justify-content: center;
 
             &_logo {
-                width: 75px;
-                height: 36px;
-            }
+                gap: 0.3vw;
 
-            &_launch {
-                width: 78px;
-                height: 22px;
+                &-image {
+                    width: 4vw;
+                    height: 4vw;
+                }
+
+                &-text {
+                    &.desktop-only {
+                        display: none;
+                    }
+
+                    &.mobile-only {
+                        display: block;
+                    }
+
+                    font-size: 1.2vw;
+                    line-height: 1.2vw;
+                }
             }
         }
     }

@@ -1,24 +1,27 @@
-// import Image from "next/image";
+import Image from "next/image";
 import cn from "classnames";
 
 import { kica } from "@/fonts";
-import Flow from "@/components/Sections/Flow/Flow";
+import Flows from "@/components/Sections/Flows/Flows";
 import Main from "@/components/Sections/Main/Main";
 import Drown from "@/components/Sections/Drown/Drown";
 import Targets from "@/components/Sections/Targets/Targets";
 import Explore from "@/components/Sections/Explore/Explore";
-// import backgroundTopLeft from "@/images/background-top-left.png";
-// import backgroundTopRight from "@/images/background-top-right.png";
+
+import backgroundMobile from "../../public/images/background-mobile.png";
+import backgroundTopLeft from "../../public/images/background-top-left.png";
+import backgroundTopRight from "../../public/images/background-top-right.png";
 
 export default function Home() {
     return (
         <>
-            {/* <Image src={backgroundTopLeft} quality={100} alt="" className="Background-TopLeft" />
-            <Image src={backgroundTopRight} quality={100} alt="" className="Background-TopRight" /> */}
+            <Image src={backgroundMobile} alt="" priority sizes="100vw" className="Background-Mobile" />
+            <Image src={backgroundTopLeft} alt="" priority sizes="100vw" className="Background-TopLeft" />
+            <Image src={backgroundTopRight} alt="" priority sizes="100vw" className="Background-TopRight" />
             <div className={cn("Landing-Page", kica.className)}>
                 <Main />
                 <Explore />
-                <Flow />
+                <Flows />
                 <Targets />
                 <Drown />
             </div>

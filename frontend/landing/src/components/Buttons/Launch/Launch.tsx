@@ -1,17 +1,20 @@
+import cn from "classnames";
+import Image from "next/image";
+
+import { gilroy } from "@/fonts";
+
+import launchButtonMask from "../../../../public/images/launch-button-mask.png";
 import "./Launch.scss";
 
-const Launch = () => {
+interface ILaunchProps {
+    className: string;
+}
+
+const Launch = ({ className }: ILaunchProps) => {
     return (
-        <div className="LaunchWrapper">
-            <div className="LaunchWrapper-Soon KicaBold">SOON</div>
-            <div className="LaunchWrapper-Container">
-                <div className="LaunchWrapper-Container_dots">
-                    <div className="dot"></div>
-                    <div className="dot op-8"></div>
-                    <div className="dot op-4"></div>
-                </div>
-                <div className="LaunchWrapper-Container_button GilroySemibold">Launch App</div>
-            </div>
+        <div className={cn("LaunchWrapper", className)}>
+            <Image src={launchButtonMask} alt="" className="LaunchWrapper-Mask" />
+            <div className={cn("LaunchWrapper-Text", gilroy.className)}>Launch App</div>
         </div>
     );
 };

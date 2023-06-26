@@ -21,6 +21,7 @@ const settings: Settings = {
     dots: true,
     arrows: false,
     infinite: true,
+    autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplaySpeed: 8000,
@@ -31,10 +32,10 @@ const settings: Settings = {
 
 const SliderWrapper = () => {
     return (
-        <Slider {...settings} autoplay={false} className="Slider">
+        <Slider {...settings} className="Slider">
             {strings.drownBlock.container.advantages.map((adv, i) => (
                 <div key={`${adv.text.slice(0, 10)}${i}`} className={cn("DrownDetail", gilroy.className, `item${i + 1}`)}>
-                    <Image src={adv.image} alt="" quality={100} className="DrownDetail-Icon" />
+                    <Image src={adv.image} alt="" sizes="100vw" className="DrownDetail-Icon" />
                     {adv.text}
                 </div>
             ))}

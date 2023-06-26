@@ -1,10 +1,12 @@
-import joinIcon from "@/images/slider/join.svg";
-import securityIcon from "@/images/slider/security.svg";
-import experienceIcon from "@/images/slider/experience.svg";
+import { StaticImageData } from "next/image";
+
+import joinIcon from "../../public/images/slider/join.png";
+import securityIcon from "../../public/images/slider/security.png";
+import experienceIcon from "../../public/images/slider/experience.png";
 
 interface IAdvantage {
     text: string;
-    image: string;
+    image: StaticImageData;
 }
 
 interface ILink {

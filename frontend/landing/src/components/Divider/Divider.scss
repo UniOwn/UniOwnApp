@@ -1,3 +1,5 @@
+@use "@/styles/_variables.scss" as constants;
+
 .DividerWrapper {
     display: flex;
     align-items: center;
@@ -20,6 +22,27 @@
             &_in-view {
                 opacity: 1 - (1 / 10) * $i;
                 transition: opacity 0.5s ease-in #{($i * 0.5) + 's'};
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
+    .DividerWrapper {
+        gap: 0.7vw;
+    }
+}
+
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
+    .DividerWrapper {
+        gap: 1vw;
+
+        @for $i from 0 through 4 {
+            &-Dot#{$i + 1} {
+                opacity: 1 - (1 / 10) * $i;
+                width: 1vw !important;
+                height: 1vw !important;
+                border-radius: 0.5vw !important;
             }
         }
     }

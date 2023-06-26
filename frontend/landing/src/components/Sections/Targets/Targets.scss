@@ -1,12 +1,20 @@
+@use "@/styles/_variables.scss" as constants;
+
 .TargetsSection {
-    margin-top: 312px;
+    margin-top: 300px;
     position: relative;
 
-    &-SideBackground {
+    &-AliensLeft {
+        width: 554px;
+        height: 474px;
         position: absolute;
-        top: 0;
+        top: 40%;
         left: 0;
         z-index: -1;
+    }
+
+    &-AliensRight {
+        display: none;
     }
 
     &-Benefits {
@@ -15,7 +23,7 @@
         align-items: flex-start;
         justify-content: flex-end;
         width: inherit;
-        gap: 132px;
+        gap: 120px;
 
         .Benefit {
             display: flex;
@@ -39,6 +47,8 @@
                 }
 
                 &-Image {
+                    width: 70px;
+                    height: 125px;
                 }
 
                 &.in-view {
@@ -52,19 +62,19 @@
                 flex-direction: row;
                 align-items: center;
                 justify-content: flex-start;
-                gap: 96px;
+                gap: 70px;
 
                 &-Items {
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
                     justify-content: flex-start;
-                    gap: 8px;
-                    max-width: 258px;
+                    gap: 15px;
+                    max-width: 340px;
 
                     &_description {
                         font-weight: 400;
-                        font-size: 16px;
+                        font-size: 22px;
                         line-height: 22px;
 
                         @for $i from 0 through 4 {
@@ -84,29 +94,164 @@
     }
 }
 
-@media (max-width: 500px) {
+@media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
     .TargetsSection {
-        margin-top: 150px;
+        margin-top: 21vw;
+
+        &-AliensLeft {
+            top: 40%;
+            width: 36.7vw;
+            height: 31.4vw;
+        }
 
         &-Benefits {
-            flex-direction: column;
-            width: inherit;
-            gap: 60px;
+            gap: 7vw;
 
             .Benefit {
-                &-Label {
-                    font-weight: 600;
-                    font-size: 17px;
-                    line-height: 30px;
+                gap: 0.8vw;
+
+                &Label {
+                    gap: 0.4vw;
+
+                    &-Text {
+                        font-size: 1.45vw;
+                        line-height: 3.5vw;
+                    }
+
+                    &-Image {
+                        width: 4.6vw;
+                        height: 8vw;
+                    }
                 }
 
                 &Details {
-                    justify-content: space-between;
+                    gap: 4.7vw;
 
                     &-Items {
+                        gap: 0.5vw;
+                        max-width: 17vw;
+
                         &_description {
-                            font-size: 14px;
-                            line-height: 18px;
+                            font-size: 1vw;
+                            line-height: 1vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
+    .TargetsSection {
+        margin-top: 18vw;
+
+        &-AliensLeft {
+            top: 60%;
+            width: 48.5vw;
+            height: 42vw;
+            margin-left: -9vw;
+        }
+
+        &-AliensRight {
+            display: block;
+            top: 8%;
+            right: 0;
+            width: 40.1vw;
+            height: 63.3vw;
+            position: absolute;
+            z-index: -1;
+        }
+
+        &-Benefits {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 4vw;
+
+            .Benefit {
+                gap: 0.8vw;
+
+                &:last-child {
+                    align-self: flex-end;
+                }
+
+                &Label {
+                    gap: 0;
+                    align-items: baseline;
+
+                    &-Text {
+                        font-size: 3vw;
+                        line-height: 10vw;
+                    }
+
+                    &-Image {
+                        width: 8vw;
+                        height: 14vw;
+                    }
+
+                    opacity: 1;
+                }
+
+                &Details {
+                    gap: 1vw;
+
+                    &-Items {
+                        gap: 1vw;
+                        max-width: 50vw;
+
+                        &_description {
+                            font-size: 2.8vw;
+                            line-height: 3vw;
+
+                            @for $i from 0 through 4 {
+                                &-item#{$i + 1} {
+                                    opacity: 1 - (1 / 10) * $i;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$xsmall - 1}) {
+    .TargetsSection {
+        &-AliensLeft {
+            top: 45%;
+            width: 48.5vw;
+            height: 42vw;
+            margin-left: -9vw;
+        }
+
+        &-Benefits {
+            gap: 25vw;
+
+            .Benefit {
+                &Label {
+                    &-Text {
+                        font-size: 14px;
+                        line-height: 50px;
+                    }
+
+                    &-Image {
+                        width: 8vw;
+                        height: 14vw;
+                    }
+                }
+
+                &Details {
+                    gap: 2.5vw;
+
+                    &-Items {
+                        gap: 1vw;
+                        max-width: 58vw;
+
+                        &_description {
+                            font-size: 12px;
+                            line-height: 14px;
                         }
                     }
                 }
