@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 
 const useScreenWidth = () => {
     const [screenWidth, setScreenWidth] = useState<number>(0);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         setScreenWidth(window.innerWidth);
 
         const updateDimension = () => {

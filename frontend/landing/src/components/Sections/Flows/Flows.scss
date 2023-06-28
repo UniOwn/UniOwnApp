@@ -51,11 +51,11 @@
 
 @media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
     .FlowSection {
-        margin-top: 70vw;
+        margin-top: 100vw;
 
         &-Flows {
             flex-direction: column;
-            gap: 7vw;
+            gap: 15vw;
 
             .DividerWrapper {
                 opacity: 1;
@@ -65,7 +65,7 @@
                 .Flow {
                     &Details {
                         &-Description {
-                            max-width: 33.5vw;
+                            max-width: 40vw;
                         }
                     }
                 }

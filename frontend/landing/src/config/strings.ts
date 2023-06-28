@@ -72,22 +72,21 @@ const strings: IStrings = {
     },
     mainBlock: {
         label: "Reducing the entrance threshold in Mantle ecosystem",
-        description:
-            "With Mantle Network, an Ethereum rollup, Mantle Treasury and a token holder governed roadmap for products and initiatives."
+        description: "With Mantle Network, an Ethereum rollup, Mantle Treasury and a token holder governed."
     },
     flowBlock: {
         label: "The flow",
         phase1: {
-            header: "ph.1",
+            header: "ph. 1",
             description: "Users to buy a share in the NFT"
         },
         phase2: {
-            header: "ph.2",
+            header: "ph. 2",
             description: "Monetization of NFT occurs through :",
             additionalInfo: "metaverse, P2E games, marketplace"
         },
         phase3: {
-            header: "ph.3",
+            header: "ph. 3",
             description: "Users recieve a profit according to his share in the NFT"
         }
     },
@@ -96,20 +95,20 @@ const strings: IStrings = {
         userBenefits: {
             label: ["for the", "user"],
             benefits: [
-                "Diversification, the ability to have stakes in liquid NFTs",
-                "Ability to play previously unavailable games",
-                "Possibility to buy rare NFTs",
-                "Opportunity to earn more"
+                "Diversification: Stakes in liquid NFTs",
+                "Access to exclusive games",
+                "Opportunity to earn more",
+                "Possibility to buy rare NFTs"
             ]
         },
         clientBenefits: {
             label: ["for the", "client"],
             benefits: [
+                "Boosting project volume",
+                "Ensure user retention",
                 "Attracting new unique users",
-                "Solves the problem of user retention thanks to passports",
-                "Increasing the volume of a specific project",
-                "Creating and engaging a community through a forum with a location definition",
-                "Increased player activity"
+                "Community engagement",
+                "Heightened player activity"
             ]
         }
     },
@@ -117,8 +116,7 @@ const strings: IStrings = {
         label: "Drown into our community",
         container: {
             header: "Join Our Community. \nUnleash the Web3 Revolution!",
-            description:
-                "Ready for something big? UniOwn is here, making waves in GameFi and NFT trading. We're cool, we're massive, and we want you!",
+            description: "UniOwn: Big waves in GameFi and NFT trading. We're cool, we're massive, and we want you!",
             advantages: [
                 {
                     image: securityIcon,

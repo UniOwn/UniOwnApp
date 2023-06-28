@@ -19,6 +19,11 @@ a {
     text-decoration: none;
 }
 
+@font-face {
+    font-family: 'Misto';
+    src: local('Misto'), url(../fonts/Misto.woff) format('woff');
+}
+
 .Background-TopRight {
     position: absolute;
     right: 0;
@@ -136,24 +141,24 @@ a {
     .Background-Mobile {
         display: block;
         position: absolute;
-        left: 0;
-        top: 60vw;
+        left: 3vw;
+        top: 75vw;
         z-index: 0;
-        width: 100%;
+        width: 96vw;
         height: auto;
     }
 
     .Landing-Page {
-        margin-top: 12vw;
+        margin-top: 10vw;
 
         .SectionWrapper {
             padding: 0 6.5vw;
-            gap: 10.5vw;
+            gap: 20vw;
 
             &-Label {
                 opacity: 1;
-                font-size: 4.2vw;
-                line-height: 4.6vw;
+                font-size: 5vw;
+                line-height: 5.6vw;
             }
         }
 

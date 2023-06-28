@@ -6,7 +6,6 @@ import { useInView } from "react-intersection-observer";
 
 import strings from "@/config/strings";
 import { kica, gilroy } from "@/fonts";
-import Divider from "@/components/Divider/Divider";
 import useScreenWidth from "@/hooks/useScreenWidth";
 
 import userEmoji from "../../../../public/images/targets/user.png";
@@ -54,13 +53,6 @@ const Targets = () => {
                                 </div>
                             ))}
                         </div>
-                        <Divider
-                            type="target"
-                            count={4}
-                            gradientDirection="right"
-                            flexDirection="column"
-                            inView={descriptionItemsInView}
-                        />
                     </div>
                 </div>
                 <div className="Benefit">
@@ -84,13 +76,6 @@ const Targets = () => {
                                 </div>
                             ))}
                         </div>
-                        <Divider
-                            type="target"
-                            count={5}
-                            gradientDirection="right"
-                            flexDirection="column"
-                            inView={descriptionItemsInView}
-                        />
                     </div>
                 </div>
             </div>

@@ -55,7 +55,9 @@ const Drown = () => {
             <div ref={container} className={cn("DrownSection-Container", containerInView && "in-view")}>
                 <div className="DrownSection-Container_details">
                     <pre className={cn("DrownHeader", kica.className)}>{strings.drownBlock.container.header}</pre>
-                    <div className={cn("DrownDetail", gilroy.className)}>{strings.drownBlock.container.description}</div>
+                    <div className={cn("DrownDetail", gilroy.className, "DrownDetail_bold")}>
+                        {strings.drownBlock.container.description}
+                    </div>
                     <SliderWrapper />
                 </div>
                 <TwitterLink />

@@ -73,7 +73,10 @@
                     max-width: 340px;
 
                     &_description {
-                        font-weight: 400;
+                        &::first-letter {
+                            font-family: "Misto";
+                        }
+                        font-weight: 600;
                         font-size: 22px;
                         line-height: 22px;
 
@@ -82,7 +85,7 @@
                                 opacity: 0;
 
                                 &-in-view {
-                                    opacity: 1 - (1 / 10) * $i;
+                                    opacity: 1;
                                     transition: opacity 0.5s ease-in #{($i * 0.5) + "s"};
                                 }
                             }
@@ -144,10 +147,11 @@
 
 @media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
     .TargetsSection {
-        margin-top: 18vw;
+        margin-top: 25vw;
+        gap: 20vw !important;
 
         &-AliensLeft {
-            top: 60%;
+            top: 50%;
             width: 48.5vw;
             height: 42vw;
             margin-left: -9vw;
@@ -155,7 +159,7 @@
 
         &-AliensRight {
             display: block;
-            top: 8%;
+            top: -10vw;
             right: 0;
             width: 40.1vw;
             height: 63.3vw;
@@ -167,7 +171,7 @@
             flex-direction: column;
             align-items: flex-start;
             justify-content: flex-start;
-            gap: 4vw;
+            gap: 40vw;
 
             .Benefit {
                 gap: 0.8vw;
@@ -181,8 +185,8 @@
                     align-items: baseline;
 
                     &-Text {
-                        font-size: 3vw;
-                        line-height: 10vw;
+                        font-size: 4vw;
+                        line-height: 15vw;
                     }
 
                     &-Image {
@@ -194,64 +198,17 @@
                 }
 
                 &Details {
-                    gap: 1vw;
-
-                    &-Items {
-                        gap: 1vw;
-                        max-width: 50vw;
-
-                        &_description {
-                            font-size: 2.8vw;
-                            line-height: 3vw;
-
-                            @for $i from 0 through 4 {
-                                &-item#{$i + 1} {
-                                    opacity: 1 - (1 / 10) * $i;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$xsmall - 1}) {
-    .TargetsSection {
-        &-AliensLeft {
-            top: 45%;
-            width: 48.5vw;
-            height: 42vw;
-            margin-left: -9vw;
-        }
-
-        &-Benefits {
-            gap: 25vw;
-
-            .Benefit {
-                &Label {
-                    &-Text {
-                        font-size: 14px;
-                        line-height: 50px;
-                    }
-
-                    &-Image {
-                        width: 8vw;
-                        height: 14vw;
-                    }
-                }
-
-                &Details {
                     gap: 2.5vw;
 
                     &-Items {
-                        gap: 1vw;
-                        max-width: 58vw;
+                        gap: 2vw;
+                        max-width: 65vw;
 
                         &_description {
-                            font-size: 12px;
-                            line-height: 14px;
+                            font-weight: 600;
+                            font-size: 3.2vw;
+                            line-height: 3.2vw;
+                            opacity: 1;
                         }
                     }
                 }

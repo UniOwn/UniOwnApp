@@ -13,7 +13,7 @@ interface ILaunchProps {
 const Launch = ({ className }: ILaunchProps) => {
     return (
         <div className={cn("LaunchWrapper", className)}>
-            <Image src={launchButtonMask} alt="" className="LaunchWrapper-Mask" />
+            <Image src={launchButtonMask} alt="" sizes="100vw" className="LaunchWrapper-Mask" />
             <div className={cn("LaunchWrapper-Text", gilroy.className)}>Launch App</div>
         </div>
     );

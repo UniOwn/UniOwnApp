@@ -30,11 +30,12 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 130px;
+        width: 128px;
+        height: auto;
     }
 }
 
-@media screen and (min-width: constants.$xsmall) and (max-width: #{constants.$small - 1}) {
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
     .LaunchWrapper {
         &.desktop-only {
             display: none;
@@ -44,49 +45,19 @@
             display: block;
         }
 
-        border-radius: 1.5vw;
+        margin-top: 8vw;
+        border-radius: 3vw;
 
         &-Text {
-            font-size: 2.5vw;
-            line-height: 5.5vw;
-            padding: 0.7vw 14vw;
+            font-size: 3.5vw;
+            line-height: 5.8vw;
+            padding: 2.5vw 24vw;
         }
 
         &-Mask {
-            display: none;
+            width: 67.05vw;
+            height: 10vw;
         }
     }
 }
 
-@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$xsmall - 1}) {
-    .LaunchWrapper {
-        &.desktop-only {
-            display: none;
-        }
-
-        &.mobile-only {
-            display: block;
-        }
-
-        border-radius: 1.5vw;
-
-        &-Text {
-            font-size: 2.5vw;
-            line-height: 5.5vw;
-            padding: 0.7vw 14vw;
-        }
-
-        &-Mask {
-            display: none;
-        }
-    }
-}
-
-@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$xsmall - 1}) {
-    .LaunchWrapper {
-        &-Text {
-            font-size: 12px;
-            line-height: 25px;
-        }
-    }
-}

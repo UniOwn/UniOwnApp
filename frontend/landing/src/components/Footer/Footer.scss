@@ -107,36 +107,38 @@
 
 @media screen and (min-width: constants.$xsmall) and (max-width: #{constants.$small - 1}) {
     .AppFooter {
-        padding: 4vw 6.5vw;
+        margin-top: 35vw;
+        padding: 3vw 5vw;
 
         &-Container {
             &_logo {
                 gap: 2.5vw;
+                flex-direction: column;
 
                 .FooterLogo {
-                    font-size: 18px;
-                    line-height: 12px;
+                    font-size: 3.2vw;
+                    line-height: 3vw;
                 }
 
                 .FooterCurrentYear {
-                    font-size: 12px;
-                    line-height: 16px;
+                    font-size: 2.5vw;
+                    line-height: 3.2vw;
                 }
             }
 
             &_section {
-                gap: 4vw;
+                gap: 6vw;
 
                 &-header {
-                    font-size: 14px;
-                    line-height: 16px;
+                    font-size: 2.7vw;
+                    line-height: 3.2vw;
                 }
 
                 &-linkwrapper {
-                    gap: 2vw;
+                    gap: 4vw;
 
-                    font-size: 12px;
-                    line-height: 14px;
+                    font-size: 2.5vw;
+                    line-height: 2.5vw;
                 }
             }
         }
@@ -145,6 +147,7 @@
 
 @media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$xsmall - 1}) {
     .AppFooter {
+        margin-top: 35vw;
         padding: 3vw 5vw;
 
         &-Container {
@@ -155,28 +158,26 @@
                 gap: 2.5vw;
 
                 .FooterLogo {
-                    font-size: 16px;
-                    line-height: 12px;
+                    font-size: 3.2vw;
+                    line-height: 3vw;
                 }
 
                 .FooterCurrentYear {
-                    font-size: 10px;
-                    line-height: 16px;
+                    font-size: 2.5vw;
+                    line-height: 3.2vw;
                 }
             }
 
             &_section {
-
                 &-header {
-                    font-size: 14px;
-                    line-height: 16px;
+                    font-size: 2.9vw;
+                    line-height: 3.2vw;
                 }
 
                 &-linkwrapper {
-                    gap: 6vw;
-
-                    font-size: 12px;
-                    line-height: 14px;
+                    gap: 4vw;
+                    font-size: 2.6vw;
+                    line-height: 2.8vw;
                 }
             }
         }

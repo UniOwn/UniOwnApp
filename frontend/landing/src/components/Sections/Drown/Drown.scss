@@ -144,17 +144,19 @@
 
 @media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
     .DrownSection {
-        margin-top: 21vw;
+        margin-top: 25vw;
+        gap: 2vw !important;
 
         &-Container {
             opacity: 1;
             flex-direction: column;
             align-items: flex-start;
             justify-content: flex-start;
+            gap: 20vw;
 
             &_details {
-                width: 75vw;
-                gap: 4.5vw;
+                gap: 8vw;
+                width: 100%;
 
                 .DrownHeader {
                     display: none;
@@ -162,59 +164,30 @@
 
                 .DrownDetail {
                     color: #ffffff;
-                    font-size: 3.5vw;
-                    line-height: 3.5vw;
+                    font-size: 3.7vw;
+                    line-height: 4vw;
+                    width: 100%;
+                    padding-top: 4.5vw;
+
+                    &_bold {
+                        font-size: 4vw;
+                        line-height: 4vw;
+                        font-weight: 600;
+                    }
 
                     @for $i from 0 through 2 {
                         &.item#{$i + 1} {
-                            font-size: 3vw;
-                            line-height: 3vw;
-                            width: 64vw !important;
+                            font-size: 3.5vw;
+                            line-height: 4vw;
+                            width: 100% !important;
                         }
                     }
 
                     &-Icon {
                         float: left;
-                        margin-top: -0.7vw;
-                        width: 3vw;
-                        height: 2.5vw;
-                    }
-                }
-
-                .Slider {
-                    width: 66vw;
-
-                    &Dots {
-                        gap: 0.8vw;
-                        margin-top: 3vw;
-
-                        .Dot {
-                            width: 1vw;
-                            height: 1vw;
-                            border-radius: 0.5vw;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$xsmall - 1}) {
-    .DrownSection {
-        &-Container {
-            &_details {
-                .DrownDetail {
-                    font-size: 14px;
-                    line-height: 16px;
-                    width: 100%;
-
-                    @for $i from 0 through 2 {
-                        &.item#{$i + 1} {
-                            font-size: 12px;
-                            line-height: 14px;
-                            width: 100% !important;
-                        }
+                        margin-top: -4.5vw;
+                        width: 8vw;
+                        height: auto;
                     }
                 }
 
@@ -223,7 +196,7 @@
 
                     &Dots {
                         gap: 2vw;
-                        margin-top: 6vw;
+                        margin-top: 5vw;
 
                         .Dot {
                             width: 2.2vw;

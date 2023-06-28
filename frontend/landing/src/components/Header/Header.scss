@@ -25,6 +25,10 @@
             }
 
             &-text {
+                &.desktop-only {
+                    display: block;
+                }
+
                 &.mobile-only {
                     display: none;
                 }
@@ -50,8 +54,16 @@
                 }
 
                 &-text {
-                    font-size: 1.1vw;
-                    line-height: 1.1vw;
+                    &.desktop-only {
+                        display: block;
+                    }
+
+                    &.mobile-only {
+                        display: none;
+                    }
+
+                    font-size: 17px;
+                    line-height: 18px;
                 }
             }
         }
@@ -60,7 +72,7 @@
 
 @media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
     .AppHeader {
-        padding: 5vw 6.5vw;
+        padding: 2vw 6.5vw;
 
         &-Container {
             justify-content: center;
@@ -69,8 +81,8 @@
                 gap: 0.3vw;
 
                 &-image {
-                    width: 4vw;
-                    height: 4vw;
+                    width: 9vw;
+                    height: 9vw;
                 }
 
                 &-text {
@@ -82,8 +94,9 @@
                         display: block;
                     }
 
-                    font-size: 1.2vw;
-                    line-height: 1.2vw;
+                    letter-spacing: 0.4vw;
+                    font-size: 3vw;
+                    line-height: 3vw;
                 }
             }
         }

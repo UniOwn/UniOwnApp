@@ -35,14 +35,14 @@
 
 @media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
     .DividerWrapper {
-        gap: 1vw;
+        gap: 1.5vw;
 
         @for $i from 0 through 4 {
             &-Dot#{$i + 1} {
                 opacity: 1 - (1 / 10) * $i;
-                width: 1vw !important;
-                height: 1vw !important;
-                border-radius: 0.5vw !important;
+                width: 1.5vw !important;
+                height: 1.5vw !important;
+                border-radius: 0.75vw !important;
             }
         }
     }

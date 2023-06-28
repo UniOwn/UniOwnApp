@@ -94,25 +94,9 @@
         align-items: center;
 
         &-Label {
-            &_icon {
-                &-battery {
-                    width: 13.7vw;
-                    height: 16.2vw;
-                    top: -8.5vw;
-                    left: 4.5vw;
-                }
-
-                &-location {
-                    width: 6.8vw;
-                    height: 9.5vw;
-                    top: -9.5vw;
-                    left: 45vw;
-                }
-            }
-
             &_text {
-                font-size: 5.6vw;
-                line-height: 5.6vw;
+                font-size: 7.6vw;
+                line-height: 7vw;
 
                 &.desktop-only {
                     display: none;
@@ -126,10 +110,10 @@
         }
 
         &-Description {
-            opacity: 0.6;
-            font-size: 3.5vw;
-            line-height: 3vw;
-            max-width: 75vw;
+            opacity: 0.8;
+            font-size: 3.8vw;
+            line-height: 4.2vw;
+            max-width: 82vw;
             text-align: center;
         }
     }
@@ -137,30 +121,14 @@
 
 @media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
     .MainSection {
-        gap: 3vw;
-        padding: 0 3vw;
+        gap: 5vw;
+        padding: 0 1.5vw;
         align-items: center;
 
         &-Label {
-            &_icon {
-                &-battery {
-                    width: 13.7vw;
-                    height: 16.2vw;
-                    top: -8.5vw;
-                    left: 4.5vw;
-                }
-
-                &-location {
-                    width: 6.8vw;
-                    height: 9.5vw;
-                    top: -9.5vw;
-                    left: 45vw;
-                }
-            }
-
             &_text {
-                font-size: 5.6vw;
-                line-height: 5.6vw;
+                font-size: 6.6vw;
+                line-height: 7vw;
 
                 &.desktop-only {
                     display: none;
@@ -174,10 +142,10 @@
         }
 
         &-Description {
-            opacity: 0.6;
-            font-size: 3.5vw;
-            line-height: 3vw;
-            max-width: 75vw;
+            opacity: 0.8;
+            font-size: 3.8vw;
+            line-height: 4.2vw;
+            max-width: 82vw;
             text-align: center;
         }
     }
