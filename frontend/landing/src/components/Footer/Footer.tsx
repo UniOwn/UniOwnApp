@@ -7,7 +7,7 @@ import "./Footer.scss";
 
 const Footer = () => {
     return (
-        <div className="AppFooter">
+        <footer className="AppFooter">
             <div className="AppFooter-Container">
                 <div className="AppFooter-Container_logo">
                     <div className={cn("FooterLogo", kica.className)}>UniOwn</div>
@@ -56,7 +56,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 };
 
