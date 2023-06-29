@@ -14,7 +14,7 @@ const TwitterLink = () => {
     return (
         <div className="DrownSection-Container_logo">
             <JoinUs />
-            {screenWidth > 720 ? (
+            {screenWidth > 1200 ? (
                 <Image src={twitterLink} alt="" priority sizes="100vw" className="TwitterLink" />
             ) : (
                 <Image src={twitterLinkMobile} alt="" priority sizes="100vw" className="TwitterLink" />

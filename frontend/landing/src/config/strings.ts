@@ -82,7 +82,7 @@ const strings: IStrings = {
         },
         phase2: {
             header: "ph. 2",
-            description: "Monetization of NFT occurs through :",
+            description: "Monetization of NFT occurs through:",
             additionalInfo: "metaverse, P2E games, marketplace"
         },
         phase3: {

@@ -76,7 +76,7 @@
     }
 }
 
-@media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
+@media screen and (min-width: constants.$xmedium) and (max-width: constants.$medium) {
     .Flow {
         gap: 2vw;
 
@@ -124,6 +124,59 @@
 
         &AdditionalInfo {
             font-size: 1vw;
+        }
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: #{constants.$xmedium - 1}) {
+    .Flow {
+        gap: 1vw;
+
+        &.Phase1 {
+            .FlowLabel {
+                &-Image {
+                    width: 9.8vw;
+                    height: 8vw;
+                }
+            }
+        }
+
+        &.Phase2 {
+            .FlowLabel {
+                &-Image {
+                    width: 8.6vw;
+                    height: 7.9vw;
+                }
+            }
+        }
+
+        &.Phase3 {
+            .FlowLabel {
+                &-Image {
+                    width: 7.2vw;
+                    height: 8.1vw;
+                }
+            }
+        }
+
+        &Label {
+            height: 9vw;
+            gap: 1.3vw;
+
+            &-Text {
+                font-size: 3vw;
+                line-height: 4vw;
+            }
+        }
+
+        &Description {
+            font-size: 1.2vw;
+            max-width: 12vw;
+            font-weight: 600;
+        }
+
+        &AdditionalInfo {
+            font-size: 1.2vw;
         }
     }
 }

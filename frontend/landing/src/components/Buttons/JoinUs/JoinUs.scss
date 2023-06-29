@@ -23,7 +23,7 @@
     }
 }
 
-@media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
+@media screen and (min-width: constants.$xmedium) and (max-width: constants.$medium) {
     .JoinUsButton {
         padding: 0.25vw 2.2vw;
         border-radius: 0.2vw;
@@ -32,14 +32,27 @@
     }
 }
 
+@media screen and (min-width: constants.$small) and (max-width: #{constants.$xmedium - 1}) {
+    .JoinUsButton {
+        padding: 1.4vw 7.5vw;
+        border-radius: 0.9vw;
+        line-height: 1.2vw;
+        font-size: 1.2vw;
+        box-shadow: 7.243780612945557px 7.243780612945557px 7.243780612945557px 0px rgba(255, 255, 255, 0.12) inset,
+            -7.243780612945557px -7.243780612945557px 7.243780612945557px 0px rgba(255, 255, 255, 0.13) inset;
+    }
+}
+
 @media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
     .JoinUsButton {
         text-transform: capitalize;
-        padding: 1vw 16vw;
-        border-radius: 1.5vw;
+        padding: 1.2vw 16vw;
+        border-radius: 2vw;
         line-height: 7vw;
         font-size: 3vw;
         width: max-content;
+        box-shadow: 7.243780612945557px 7.243780612945557px 7.243780612945557px 0px rgba(255, 255, 255, 0.12) inset,
+            -7.243780612945557px -7.243780612945557px 7.243780612945557px 0px rgba(255, 255, 255, 0.13) inset;
         filter: none;
     }
 }

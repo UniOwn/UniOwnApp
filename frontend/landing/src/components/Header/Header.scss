@@ -40,7 +40,7 @@
     }
 }
 
-@media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
+@media screen and (min-width: constants.$xmedium) and (max-width: constants.$medium) {
     .AppHeader {
         padding: 1.9vw 7.5vw;
 
@@ -64,6 +64,37 @@
 
                     font-size: 17px;
                     line-height: 18px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: #{constants.$xmedium - 1}) {
+    .AppHeader {
+        padding: 1.9vw 7.5vw;
+
+        &-Container {
+            &_logo {
+                gap: 0.2vw;
+
+                &-image {
+                    width: 3.5vw;
+                    height: 3.5vw;
+                }
+
+                &-text {
+                    &.desktop-only {
+                        display: none;
+                    }
+
+                    &.mobile-only {
+                        display: block;
+                    }
+
+                    letter-spacing: 0.2vw;
+                    font-size: 1.3vw;
+                    line-height: 1.4vw;
                 }
             }
         }

@@ -1,7 +1,7 @@
 @use "@/styles/_variables.scss" as constants;
 
 .DrownSection {
-    margin-top: 200px;
+    margin-top: 300px;
 
     &-Container {
         display: flex;
@@ -17,7 +17,7 @@
         }
 
         &_details {
-            width: 562px;
+            width: 700px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -32,31 +32,43 @@
 
             .DrownDetail {
                 font-weight: 400;
-                font-size: 24px;
-                line-height: 30px;
-                color: #dad2cf;
-                padding-top: 10px;
+                font-size: 20px;
+                line-height: 26px;
+                color: #ffffff;
+                padding-top: 20px;
+
+                &_bold {
+                    font-size: 30px;
+                    line-height: 32px;
+                    font-weight: 600;
+                }
 
                 &-Icon {
                     float: left;
-                    margin-top: -8px;
+                    margin-top: -20px;
+                    width: 40px;
+                    height: auto;
                 }
 
                 &.item1 {
-                    width: 483px !important;
+                    width: 650px !important;
                 }
 
                 &.item2 {
-                    width: 500px !important;
+                    width: 650px !important;
                 }
 
                 &.item3 {
-                    width: 503px !important;
+                    width: 650px !important;
+
+                    .DrownDetail-Icon {
+                        margin-right: 5px;
+                    }
                 }
             }
 
             .Slider {
-                width: 510px;
+                width: 660px;
 
                 .Dot {
                     cursor: pointer;
@@ -85,14 +97,15 @@
     }
 }
 
-@media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
+@media screen and (min-width: constants.$xmedium) and (max-width: constants.$medium) {
     .DrownSection {
-        margin-top: 13.5vw;
+        margin-top: 20vw;
+        gap: 3vw !important;
 
         &-Container {
             &_details {
-                width: 36vw;
-                gap: 1.2vw;
+                width: 44vw;
+                gap: 2vw;
 
                 .DrownHeader {
                     font-size: 1.6vw;
@@ -101,8 +114,73 @@
 
                 .DrownDetail {
                     font-size: 1.3vw;
+                    line-height: 1.5vw;
+                    padding-top: 1.2vw;
+
+                    &_bold {
+                        font-size: 1.7vw;
+                        line-height: 2vw;
+                        font-weight: 600;
+                    }
+
+                    &-Icon {
+                        float: left;
+                        margin-top: -1.2vw;
+                        width: 2.5vw;
+                        height: auto;
+                    }
+
+                    &.item1 {
+                        width: 39vw !important;
+                    }
+
+                    &.item2 {
+                        width: 39vw !important;
+                    }
+
+                    &.item3 {
+                        width: 39vw !important;
+                    }
+                }
+
+                .Slider {
+                    width: 40vw;
+
+                    &Dots {
+                        gap: 0.8vw;
+                        margin-top: 1.5vw;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: #{constants.$xmedium - 1}) {
+    .DrownSection {
+        margin-top: 25vw;
+        gap: 3vw !important;
+
+        &-Container {
+            &_details {
+                width: 43vw;
+                gap: 1.2vw;
+
+                .DrownHeader {
+                    display: none;
+                }
+
+                .DrownDetail {
+                    color: #ffffff;
+                    font-size: 1.4vw;
                     line-height: 2vw;
                     padding-top: 0.8vw;
+
+                    &_bold {
+                        font-size: 1.7vw;
+                        line-height: 2vw;
+                        font-weight: 600;
+                    }
 
                     &-Icon {
                         float: left;
@@ -112,29 +190,24 @@
                     }
 
                     &.item1 {
-                        width: 27.5vw !important;
+                        width: 40vw !important;
                     }
 
                     &.item2 {
-                        width: 28vw !important;
+                        width: 40vw !important;
                     }
 
                     &.item3 {
-                        width: 28vw !important;
-
-                        &-Icon {
-                            width: 3vw;
-                            height: 2.5vw;
-                        }
+                        width: 40vw !important;
                     }
                 }
 
                 .Slider {
-                    width: 32vw;
+                    width: 41vw;
 
                     &Dots {
                         gap: 0.8vw;
-                        margin-top: 3.5vw;
+                        margin-top: 1.5vw;
                     }
                 }
             }
@@ -157,10 +230,6 @@
             &_details {
                 gap: 8vw;
                 width: 100%;
-
-                .DrownHeader {
-                    display: none;
-                }
 
                 .DrownDetail {
                     color: #ffffff;

@@ -1,12 +1,12 @@
 @use "@/styles/_variables.scss" as constants;
 
 .TargetsSection {
-    margin-top: 300px;
+    margin-top: 200px;
     position: relative;
 
     &-AliensLeft {
         width: 554px;
-        height: 474px;
+        height: auto;
         position: absolute;
         top: 40%;
         left: 0;
@@ -70,7 +70,7 @@
                     align-items: flex-start;
                     justify-content: flex-start;
                     gap: 15px;
-                    max-width: 340px;
+                    max-width: 440px;
 
                     &_description {
                         &::first-letter {
@@ -97,22 +97,20 @@
     }
 }
 
-@media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
+@media screen and (min-width: constants.$xmedium) and (max-width: constants.$medium) {
     .TargetsSection {
-        margin-top: 21vw;
+        margin-top: 15vw;
 
         &-AliensLeft {
             top: 40%;
             width: 36.7vw;
-            height: 31.4vw;
+            height: auto;
         }
 
         &-Benefits {
             gap: 7vw;
 
             .Benefit {
-                gap: 0.8vw;
-
                 &Label {
                     gap: 0.4vw;
 
@@ -145,15 +143,59 @@
     }
 }
 
+@media screen and (min-width: constants.$small) and (max-width: #{constants.$xmedium - 1}) {
+    .TargetsSection {
+        &-AliensLeft {
+            top: 7vw;
+            width: 36.7vw;
+            height: auto;
+        }
+
+        &-Benefits {
+            gap: 8vw;
+
+            .Benefit {
+                &Label {
+                    gap: 0.4vw;
+
+                    &-Text {
+                        font-size: 1.7vw;
+                        line-height: 3.5vw;
+                    }
+
+                    &-Image {
+                        width: 4.6vw;
+                        height: 8vw;
+                    }
+                }
+
+                &Details {
+                    gap: 2vw;
+
+                    &-Items {
+                        gap: 0.5vw;
+                        max-width: 25vw;
+
+                        &_description {
+                            font-size: 1.3vw;
+                            line-height: 1.5vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
     .TargetsSection {
         margin-top: 25vw;
         gap: 20vw !important;
 
         &-AliensLeft {
-            top: 50%;
+            top: 75vw;
             width: 48.5vw;
-            height: 42vw;
+            height: auto;
             margin-left: -9vw;
         }
 
@@ -174,8 +216,6 @@
             gap: 40vw;
 
             .Benefit {
-                gap: 0.8vw;
-
                 &:last-child {
                     align-self: flex-end;
                 }

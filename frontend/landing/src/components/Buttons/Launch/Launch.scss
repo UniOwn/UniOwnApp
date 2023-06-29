@@ -30,8 +30,42 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 128px;
+        width: 130px;
         height: auto;
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: #{constants.$xmedium - 1}) {
+    .LaunchWrapper {
+        &.desktop-only {
+            display: block;
+        }
+
+        &.mobile-only {
+            display: none;
+        }
+
+        border-radius: 0.8vw;
+
+
+        &-Text {
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.86);
+            font-size: 1vw;
+            line-height: 1.8vw;
+            padding: 0.6vw 4vw;
+            z-index: 5;
+            position: relative;
+        }
+
+        &-Mask {
+            display: none;
+            z-index: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 16.62vw;
+            height: 3.8vw;
+        }
     }
 }
 
@@ -49,6 +83,7 @@
         border-radius: 3vw;
 
         &-Text {
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.86);
             font-size: 3.5vw;
             line-height: 5.8vw;
             padding: 2.5vw 24vw;
@@ -60,4 +95,3 @@
         }
     }
 }
-

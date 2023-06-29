@@ -21,14 +21,14 @@
 
             .FooterLogo {
                 font-weight: 600;
-                font-size: 20px;
-                line-height: 20px;
+                font-size: 22px;
+                line-height: 22px;
             }
 
             .FooterCurrentYear {
                 font-weight: 500;
                 font-size: 16px;
-                line-height: 20px;
+                line-height: 22px;
             }
         }
 
@@ -41,7 +41,7 @@
 
             &-header {
                 font-weight: 600;
-                font-size: 10px;
+                font-size: 18px;
                 line-height: 24px;
                 text-transform: uppercase;
             }
@@ -54,7 +54,7 @@
                 gap: 10px;
 
                 font-weight: 400;
-                font-size: 10px;
+                font-size: 16px;
                 line-height: 24px;
                 text-transform: uppercase;
 
@@ -66,7 +66,7 @@
     }
 }
 
-@media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
+@media screen and (min-width: constants.$xmedium) and (max-width: constants.$medium) {
     .AppFooter {
         margin-top: 5vw;
         padding: 5vw 10vw;
@@ -90,14 +90,53 @@
                 gap: 2vw;
 
                 &-header {
-                    font-size: 0.7vw;
+                    font-size: 1vw;
                     line-height: 1.5vw;
                 }
 
                 &-linkwrapper {
-                    gap: 0.7vw;
+                    gap: 0.9vw;
 
-                    font-size: 0.7vw;
+                    font-size: 0.9vw;
+                    line-height: 1.5vw;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: #{constants.$xmedium - 1}) {
+    .AppFooter {
+        margin-top: 5vw;
+        padding: 5vw 10vw;
+
+        &-Container {
+            &_logo {
+                gap: 1vw;
+
+                .FooterLogo {
+                    font-size: 1.5vw;
+                    line-height: 1.5vw;
+                }
+
+                .FooterCurrentYear {
+                    font-size: 1.3vw;
+                    line-height: 1.5vw;
+                }
+            }
+
+            &_section {
+                gap: 2vw;
+
+                &-header {
+                    font-size: 1.3vw;
+                    line-height: 1.5vw;
+                }
+
+                &-linkwrapper {
+                    gap: 1.5vw;
+
+                    font-size: 1.1vw;
                     line-height: 1.5vw;
                 }
             }
