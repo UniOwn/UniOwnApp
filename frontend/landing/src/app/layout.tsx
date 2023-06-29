@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <link rel="icon" href="/favicon.ico" sizes="any" />
                 <meta
                     name="description"
-                    content="The UniOwn Protocol which enables users to buy shares in NFTs while ensuring robust regulation of property rights."
+                    content="UniOwn: Empowering Fractional NFT Ownership on a Thriving Marketplace - Join the GameFi and NFT Revolution."
                 />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </head>
