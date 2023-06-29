@@ -4,17 +4,17 @@
     position: absolute;
     font-style: normal;
     font-weight: 600;
-    font-size: 9px;
-    padding: 4px 34px;
+    font-size: 10px;
+    padding: 6px 45px;
     background: #1263fe;
     filter: drop-shadow(0px 4px 7px rgba(0, 0, 0, 0.25));
     box-shadow: inset -4px -4px 4px rgba(255, 255, 255, 0.18), inset 4px 4px 4px rgba(255, 255, 255, 0.18);
-    border-radius: 3px;
+    border-radius: 8px;
     line-height: 16px;
     cursor: pointer;
     display: inline-block;
-    top: 55%;
-    left: 50%;
+    top: 49%;
+    left: 51%;
     transform: translate(-50%, -50%);
     z-index: 5;
 
@@ -26,7 +26,7 @@
 @media screen and (min-width: constants.$xmedium) and (max-width: constants.$medium) {
     .JoinUsButton {
         padding: 0.25vw 2.2vw;
-        border-radius: 0.2vw;
+        border-radius: 0.4vw;
         line-height: 1vw;
         font-size: 0.6vw;
     }
@@ -34,8 +34,10 @@
 
 @media screen and (min-width: constants.$small) and (max-width: #{constants.$xmedium - 1}) {
     .JoinUsButton {
-        padding: 1.4vw 7.5vw;
-        border-radius: 0.9vw;
+        top: 45%;
+        left: 50%;
+        padding: 1.4vw 6.5vw;
+        border-radius: 1.3vw;
         line-height: 1.2vw;
         font-size: 1.2vw;
         box-shadow: 7.243780612945557px 7.243780612945557px 7.243780612945557px 0px rgba(255, 255, 255, 0.12) inset,
@@ -47,7 +49,7 @@
     .JoinUsButton {
         text-transform: capitalize;
         padding: 1.2vw 16vw;
-        border-radius: 2vw;
+        border-radius: 2.5vw;
         line-height: 7vw;
         font-size: 3vw;
         width: max-content;

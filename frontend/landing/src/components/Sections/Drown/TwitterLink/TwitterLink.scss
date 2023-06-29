@@ -3,16 +3,16 @@
 .DrownSection {
     &-Container {
         &_logo {
-            width: 704px;
-            height: 615px;
+            width: 500px;
+            height: 450px;
             position: relative;
             margin-top: -40px;
         }
 
         .TwitterLink {
             position: absolute;
-            width: 704px;
-            height: 615px;
+            width: 500px;
+            height: auto;
         }
     }
 }
@@ -21,13 +21,13 @@
     .DrownSection {
         &-Container {
             &_logo {
-                width: 553px;
-                height: 483px;
+                width: 400px;
+                height: 350px;
             }
 
             .TwitterLink {
-                width: 553px;
-                height: 483px;
+                width: 400px;
+                height: auto;
             }
         }
     }
@@ -53,9 +53,9 @@
     .DrownSection {
         &-Container {
             &_logo {
-                margin-top: 0vw;
+                margin-top: -2vw;
                 width: 40vw;
-                height: 30vw;
+                height: 37vw;
             }
 
             .TwitterLink {

@@ -8,6 +8,12 @@
     gap: 30px;
     opacity: 0;
 
+    &:first-child {
+        .FlowDescription {
+            max-width: 280px;
+        }
+    }
+
     &.Phase1 {
         .FlowLabel {
             &-Image {
@@ -62,7 +68,7 @@
     &Description {
         font-weight: 500;
         font-size: 22px;
-        max-width: 252px;
+        max-width: 350px;
     }
 
     &AdditionalInfo {
@@ -79,6 +85,12 @@
 @media screen and (min-width: constants.$xmedium) and (max-width: constants.$medium) {
     .Flow {
         gap: 2vw;
+
+        &:first-child {
+            .FlowDescription {
+                max-width: 13vw;
+            }
+        }
 
         &.Phase1 {
             .FlowLabel {
@@ -119,7 +131,7 @@
 
         &Description {
             font-size: 1vw;
-            max-width: 12vw;
+            max-width: 15.8vw;
         }
 
         &AdditionalInfo {
@@ -131,6 +143,12 @@
 @media screen and (min-width: constants.$small) and (max-width: #{constants.$xmedium - 1}) {
     .Flow {
         gap: 1vw;
+
+        &:first-child {
+            .FlowDescription {
+                max-width: 12vw;
+            }
+        }
 
         &.Phase1 {
             .FlowLabel {
@@ -170,9 +188,8 @@
         }
 
         &Description {
-            font-size: 1.2vw;
-            max-width: 12vw;
-            font-weight: 600;
+            font-size: 1vw;
+            max-width: 18vw;
         }
 
         &AdditionalInfo {

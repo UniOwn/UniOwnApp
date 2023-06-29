@@ -12,6 +12,7 @@ import userEmoji from "../../../../public/images/targets/user.png";
 import clientEmoji from "../../../../public/images/targets/client.png";
 import aliensLeft from "../../../../public/images/targets/aliens-left.png";
 import aliensRight from "../../../../public/images/targets/aliens-right.png";
+import aliensDesktop from "../../../../public/images/targets/aliens-desktop.png";
 
 import "./Targets.scss";
 
@@ -23,10 +24,15 @@ const Targets = () => {
     const screenWidth = useScreenWidth();
 
     return (
-        <div className="TargetsSection SectionWrapper">
-            <Image src={aliensLeft} alt="" sizes="100vw" priority className="TargetsSection-AliensLeft" />
+        <section className="TargetsSection SectionWrapper">
+            {screenWidth > 720 && (
+                <Image src={aliensDesktop} alt="" sizes="100vw" priority className="TargetsSection-AliensDesktop" />
+            )}
             {screenWidth <= 720 && (
-                <Image src={aliensRight} alt="" sizes="100vw" priority className="TargetsSection-AliensRight" />
+                <>
+                    <Image src={aliensLeft} alt="" sizes="100vw" priority className="TargetsSection-AliensLeft" />
+                    <Image src={aliensRight} alt="" sizes="100vw" priority className="TargetsSection-AliensRight" />
+                </>
             )}
             <div ref={sectionLabel} className={cn("SectionWrapper-Label", kica.className, sectionLabelInView && "in-view")}>
                 {strings.targetsBlock.label}
@@ -38,21 +44,19 @@ const Targets = () => {
                         <Image src={userEmoji} alt="" sizes="100vw" className="BenefitLabel-Image" />
                         <div className="BenefitLabel-Text">{strings.targetsBlock.userBenefits.label[1]}</div>
                     </div>
-                    <div ref={descriptionItems} className="BenefitDetails">
-                        <div className={cn("BenefitDetails-Items", gilroy.className)}>
-                            {strings.targetsBlock.userBenefits.benefits.map((benefit, i) => (
-                                <div
-                                    key={benefit}
-                                    className={cn(
-                                        "BenefitDetails-Items_description",
-                                        `BenefitDetails-Items_description-item${i + 1}`,
-                                        descriptionItemsInView && `BenefitDetails-Items_description-item${i + 1}-in-view`
-                                    )}
-                                >
-                                    {benefit}
-                                </div>
-                            ))}
-                        </div>
+                    <div ref={descriptionItems} className={cn("BenefitDetails", gilroy.className)}>
+                        {strings.targetsBlock.userBenefits.benefits.map((benefit, i) => (
+                            <div
+                                key={benefit}
+                                className={cn(
+                                    "BenefitDetails_description",
+                                    `BenefitDetails_description-item${i + 1}`,
+                                    descriptionItemsInView && `BenefitDetails_description-item${i + 1}-in-view`
+                                )}
+                            >
+                                {benefit}
+                            </div>
+                        ))}
                     </div>
                 </div>
                 <div className="Benefit">
@@ -61,25 +65,23 @@ const Targets = () => {
                         <Image src={clientEmoji} alt="" sizes="100vw" className="BenefitLabel-Image" />
                         <div className="BenefitLabel-Text">{strings.targetsBlock.clientBenefits.label[1]}</div>
                     </div>
-                    <div className="BenefitDetails">
-                        <div ref={descriptionItems} className={cn("BenefitDetails-Items", gilroy.className)}>
-                            {strings.targetsBlock.clientBenefits.benefits.map((benefit, i) => (
-                                <div
-                                    key={benefit}
-                                    className={cn(
-                                        "BenefitDetails-Items_description",
-                                        `BenefitDetails-Items_description-item${i + 1}`,
-                                        descriptionItemsInView && `BenefitDetails-Items_description-item${i + 1}-in-view`
-                                    )}
-                                >
-                                    {benefit}
-                                </div>
-                            ))}
-                        </div>
+                    <div ref={descriptionItems} className={cn("BenefitDetails", gilroy.className)}>
+                        {strings.targetsBlock.clientBenefits.benefits.map((benefit, i) => (
+                            <div
+                                key={benefit}
+                                className={cn(
+                                    "BenefitDetails_description",
+                                    `BenefitDetails_description-item${i + 1}`,
+                                    descriptionItemsInView && `BenefitDetails_description-item${i + 1}-in-view`
+                                )}
+                            >
+                                {benefit}
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

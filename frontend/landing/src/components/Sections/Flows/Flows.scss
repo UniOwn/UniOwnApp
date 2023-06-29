@@ -22,30 +22,12 @@
                 }
             }
         }
-
-        :last-child {
-            .Flow {
-                &Description {
-                    max-width: 337px;
-                }
-            }
-        }
     }
 }
 
 @media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
     .FlowSection {
         margin-top: 10.5vw;
-
-        &-Flows {
-            :last-child {
-                .Flow {
-                    &Description {
-                        max-width: 18.5vw;
-                    }
-                }
-            }
-        }
     }
 }
 
@@ -59,16 +41,6 @@
 
             .DividerWrapper {
                 opacity: 1;
-            }
-
-            :last-child {
-                .Flow {
-                    &Details {
-                        &-Description {
-                            max-width: 40vw;
-                        }
-                    }
-                }
             }
         }
     }

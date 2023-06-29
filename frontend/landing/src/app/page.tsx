@@ -8,15 +8,15 @@ import Drown from "@/components/Sections/Drown/Drown";
 import Targets from "@/components/Sections/Targets/Targets";
 import Explore from "@/components/Sections/Explore/Explore";
 
+import backgroundTop from "../../public/images/background-top.png";
 import backgroundMobile from "../../public/images/background-mobile.png";
-import backgroundTopLeft from "../../public/images/background-top-left.png";
 import backgroundTopRight from "../../public/images/background-top-right.png";
 
 export default function Home() {
     return (
         <>
+            <Image src={backgroundTop} alt="" priority sizes="100vw" className="Background-Top" />
             <Image src={backgroundMobile} alt="" priority sizes="100vw" className="Background-Mobile" />
-            <Image src={backgroundTopLeft} alt="" priority sizes="100vw" className="Background-TopLeft" />
             <Image src={backgroundTopRight} alt="" priority sizes="100vw" className="Background-TopRight" />
             <div className={cn("Landing-Page", kica.className)}>
                 <Main />

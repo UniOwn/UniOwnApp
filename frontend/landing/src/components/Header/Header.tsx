@@ -13,8 +13,7 @@ const Header = () => {
             <div className="AppHeader-Container">
                 <div className="AppHeader-Container_logo">
                     <Image src={logo} alt="" sizes="100vw" className="AppHeader-Container_logo-image" />
-                    <pre className={cn("AppHeader-Container_logo-text desktop-only", kica.className)}>{`Uni \nOwn`}</pre>
-                    <div className={cn("AppHeader-Container_logo-text mobile-only", kica.className)}>UniOwn</div>
+                    <div className={cn("AppHeader-Container_logo-text", kica.className)}>UniOwn</div>
                 </div>
                 <Launch className="desktop-only" />
             </div>

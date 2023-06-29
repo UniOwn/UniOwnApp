@@ -9,7 +9,7 @@ const kica = localFont({
         },
         {
             path: "./IFKica-Light.woff",
-            weight: "400",
+            weight: "100",
             style: "light"
         },
         {

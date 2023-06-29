@@ -25,14 +25,7 @@
             }
 
             &-text {
-                &.desktop-only {
-                    display: block;
-                }
-
-                &.mobile-only {
-                    display: none;
-                }
-
+                letter-spacing: 2px;
                 font-size: 17px;
                 line-height: 18px;
             }
@@ -54,14 +47,6 @@
                 }
 
                 &-text {
-                    &.desktop-only {
-                        display: block;
-                    }
-
-                    &.mobile-only {
-                        display: none;
-                    }
-
                     font-size: 17px;
                     line-height: 18px;
                 }
@@ -84,14 +69,6 @@
                 }
 
                 &-text {
-                    &.desktop-only {
-                        display: none;
-                    }
-
-                    &.mobile-only {
-                        display: block;
-                    }
-
                     letter-spacing: 0.2vw;
                     font-size: 1.3vw;
                     line-height: 1.4vw;
@@ -117,14 +94,6 @@
                 }
 
                 &-text {
-                    &.desktop-only {
-                        display: none;
-                    }
-
-                    &.mobile-only {
-                        display: block;
-                    }
-
                     letter-spacing: 0.4vw;
                     font-size: 3vw;
                     line-height: 3vw;

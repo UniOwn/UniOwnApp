@@ -72,18 +72,17 @@ const strings: IStrings = {
     },
     mainBlock: {
         label: "Reducing the entrance threshold in Mantle ecosystem",
-        description: "With Mantle Network, an Ethereum rollup, Mantle Treasury and a token holder governed."
+        description: "Unlock the Future of GameFi \n and NFT Trading with UniOwn"
     },
     flowBlock: {
         label: "The flow",
         phase1: {
             header: "ph. 1",
-            description: "Users to buy a share in the NFT"
+            description: "Explore: Discover GameFi and NFT opportunities"
         },
         phase2: {
             header: "ph. 2",
-            description: "Monetization of NFT occurs through:",
-            additionalInfo: "metaverse, P2E games, marketplace"
+            description: "Participate: Invest and collaborate in fractional ownership"
         },
         phase3: {
             header: "ph. 3",
@@ -116,7 +115,8 @@ const strings: IStrings = {
         label: "Drown into our community",
         container: {
             header: "Join Our Community. \nUnleash the Web3 Revolution!",
-            description: "UniOwn: Big waves in GameFi and NFT trading. We're cool, we're massive, and we want you!",
+            description:
+                "Revolutionizing GameFi and NFT Trading. We're making a pill for the industry, and we want you on board!",
             advantages: [
                 {
                     image: securityIcon,

@@ -21,7 +21,7 @@ const settings: Settings = {
     dots: true,
     arrows: false,
     infinite: true,
-    autoplay: true,
+    // autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplaySpeed: 8000,
@@ -48,20 +48,20 @@ const Drown = () => {
     const { ref: container, inView: containerInView } = useInView({ triggerOnce: true });
 
     return (
-        <div className={cn("DrownSection", "SectionWrapper")}>
+        <section className={cn("DrownSection", "SectionWrapper")}>
             <div ref={sectionLabel} className={cn("SectionWrapper-Label", kica.className, sectionLabelInView && "in-view")}>
                 {strings.drownBlock.label}
             </div>
             <div ref={container} className={cn("DrownSection-Container", containerInView && "in-view")}>
                 <div className="DrownSection-Container_details">
-                    <div className={cn("DrownDetail", gilroy.className, "DrownDetail_bold")}>
+                    <div className={cn("DrownDetail", kica.className, "DrownDetail_bold")}>
                         {strings.drownBlock.container.description}
                     </div>
                     <SliderWrapper />
                 </div>
                 <TwitterLink />
             </div>
-        </div>
+        </section>
     );
 };
 

@@ -4,12 +4,12 @@ import cn from "classnames";
 import Image from "next/image";
 
 import strings from "@/config/strings";
-import { kica, misto, gilroy } from "@/fonts";
+import { kica, misto } from "@/fonts";
 import useScreenWidth from "@/hooks/useScreenWidth";
 import Launch from "@/components/Buttons/Launch/Launch";
 
-import battery from "../../../../public/images/main/battery.png";
-import location from "../../../../public/images/main/location.png";
+import pillLeft from "../../../../public/images/main/pill-left.png";
+import pillBottom from "../../../../public/images/main/pill-bottom.png";
 
 import "./Main.scss";
 
@@ -19,24 +19,17 @@ const Main = () => {
     return (
         <div className="MainSection">
             <div className="MainSection-Label">
-                {screenSize > 720 && <Image src={location} alt="" sizes="100vw" className="MainSection-Label_icon-location " />}
-                {screenSize > 720 && <Image src={battery} alt="" sizes="100vw" className="MainSection-Label_icon-battery" />}
-                <pre className={cn("MainSection-Label_text", "desktop-only", kica.className)}>
-                    Reducing the <span className={misto.className}>entrance</span>
+                <Image src={pillLeft} alt="" sizes="100vw" className="MainSection-Label_icon-pill-left" />
+                {screenSize > 720 && (
+                    <Image src={pillBottom} alt="" sizes="100vw" className="MainSection-Label_icon-pill-bottom" />
+                )}
+                <pre className={cn("MainSection-Label_text", kica.className)}>
+                    Reducing the <span className={misto.className}>Entry</span>
                     {"\n"}
-                    threshold in Mantle
-                    {"\n"}
-                    <span className={misto.className}>ecosystem</span>
-                </pre>
-                <pre className={cn("MainSection-Label_text", "mobile-only", kica.className)}>
-                    Reducing the
-                    {"\n"}
-                    <span className={misto.className}>entrance</span> threshold
-                    {"\n"}
-                    in Mantle <span className={misto.className}>ecosystem</span>
+                    <span className={misto.className}>threshold</span> to WEB3
                 </pre>
             </div>
-            <div className={cn("MainSection-Description", gilroy.className)}>{strings.mainBlock.description}</div>
+            <div className={cn("MainSection-Description", kica.className)}>{strings.mainBlock.description}</div>
             <Launch className="mobile-only" />
         </div>
     );
