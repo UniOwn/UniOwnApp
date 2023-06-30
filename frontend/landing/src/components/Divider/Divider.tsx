@@ -3,39 +3,38 @@ import cn from "classnames";
 import "./Divider.scss";
 
 interface IDividerProps {
-    type: "flow" | "target";
-    count?: number;
+    type: "flowDesktop" | "flowMobile";
     className?: string;
     flexDirection?: "row" | "column";
-    gradientDirection: "left" | "right";
-    inView?: boolean;
+    gradientDirection?: "left" | "right";
 }
 
-const Divider = ({ inView, type, count, className, gradientDirection, flexDirection = "row" }: IDividerProps) => {
+const Divider = ({ type, className, gradientDirection, flexDirection = "row" }: IDividerProps) => {
     return (
         <div
             className={cn("DividerWrapper", flexDirection === "row" && "row", flexDirection === "column" && "column", className)}
         >
-            {type === "flow" && (
+            {type === "flowDesktop" && (
                 <>
                     <div className={cn("DividerWrapper-Dot", "MainDot", gradientDirection === "left" && "op-4")} />
                     <div className="DividerWrapper-Dot MainDot op-8" />
                     <div className={cn("DividerWrapper-Dot", "MainDot", gradientDirection === "right" && "op-4")} />
                 </>
             )}
-            {type === "target" && (
-                <>
-                    {[...new Array(count)].map((item, i) => (
-                        <div
-                            key={i}
-                            className={cn(
-                                "MainDot",
-                                `DividerWrapper-Dot${i + 1}`,
-                                inView && `DividerWrapper-Dot${i + 1}_in-view`
-                            )}
-                        />
-                    ))}
-                </>
+            {type === "flowMobile" && (
+                <div className="DividerWrapper-Mobile">
+                    <div className="DividerWrapper-Mobile_container">
+                        {[...new Array(5)].map((item, i) => (
+                            <div key={i} className={cn("DividerWrapper-Mobile_container-dot")} />
+                        ))}
+                    </div>
+                    <div className="DividerWrapper-Mobile_container">
+                        {[...new Array(3)].map((item, i) => (
+                            <div key={i} className={cn("DividerWrapper-Mobile_container-dot", "op-8")} />
+                        ))}
+                    </div>
+                    <div className={cn("DividerWrapper-Mobile_container-dot", "op-4")} />
+                </div>
             )}
         </div>
     );

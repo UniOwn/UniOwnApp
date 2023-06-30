@@ -21,7 +21,7 @@
 
             &_in-view {
                 opacity: 1 - (1 / 10) * $i;
-                transition: opacity 0.5s ease-in #{($i * 0.5) + 's'};
+                transition: opacity 0.5s ease-in #{($i * 0.5) + "s"};
             }
         }
     }
@@ -43,6 +43,29 @@
                 width: 1.5vw !important;
                 height: 1.5vw !important;
                 border-radius: 0.75vw !important;
+            }
+        }
+
+        &-Mobile {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1vw;
+
+            &_container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 1vw;
+
+                &-dot {
+                    width: 1vw;
+                    height: 1vw;
+                    border-radius: 0.5vw;
+                    background: #ffffff;
+                }
             }
         }
     }

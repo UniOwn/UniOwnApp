@@ -3,6 +3,8 @@ import Image, { StaticImageData } from "next/image";
 import { useInView } from "react-intersection-observer";
 
 import { kica, gilroy } from "@/fonts";
+import Divider from "@/components/Divider/Divider";
+import useScreenWidth from "@/hooks/useScreenWidth";
 
 import "./Target.scss";
 
@@ -13,6 +15,7 @@ interface ITargetProps {
 }
 
 const Target = ({ label, benefits, labelImage }: ITargetProps) => {
+    const screenWidth = useScreenWidth();
     const { ref: benefitLabes, inView: benefitLabesInView } = useInView({ triggerOnce: true });
     const { ref: descriptionItems, inView: descriptionItemsInView } = useInView({ triggerOnce: true });
 
@@ -23,6 +26,7 @@ const Target = ({ label, benefits, labelImage }: ITargetProps) => {
                 <Image src={labelImage} alt="" sizes="100vw" className="BenefitLabel-Image" />
                 <div className="BenefitLabel-Text">{label[1]}</div>
             </div>
+            {screenWidth <= 720 && <Divider type="flowMobile" gradientDirection="left" />}
             <div ref={descriptionItems} className={cn("BenefitDetails", gilroy.className)}>
                 {benefits.map((benefit, i) => (
                     <div
