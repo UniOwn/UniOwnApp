@@ -20,7 +20,6 @@ interface IFooterSection {
 }
 
 interface IDrown {
-    header: string;
     description: string;
     advantages: IAdvantage[];
     joinButton: string;
@@ -114,7 +113,6 @@ const strings: IStrings = {
     drownBlock: {
         label: "Drown into our community",
         container: {
-            header: "Join Our Community. \nUnleash the Web3 Revolution!",
             description:
                 "Revolutionizing GameFi and NFT Trading. We're making a pill for the industry, and we want you on board!",
             advantages: [

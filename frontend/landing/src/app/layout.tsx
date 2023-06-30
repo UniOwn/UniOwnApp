@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
+import GoogleAnalytic from "@/analytics/GoogleAnalytic";
 
 import "@/styles/global.scss";
 
@@ -16,6 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </head>
             <body className="RootLayout-Wrapper">
+                <GoogleAnalytic measurementId={process.env.NEXT_PUBLIC_GA_KEY} />
                 <Header />
                 {children}
                 <Footer />

@@ -24,7 +24,7 @@
             flex-direction: column;
             align-items: flex-start;
             justify-content: flex-start;
-            gap: 18px;
+            gap: 30px;
 
             .DrownHeader {
                 font-weight: 600;
@@ -91,8 +91,13 @@
                     justify-content: flex-start;
                     gap: 10px;
                     list-style: none;
-                    margin-top: 50px;
+                    margin-top: 20px;
                 }
+            }
+
+            &-footer {
+                font-size: 22px;
+                line-height: 25px;
             }
         }
     }
@@ -162,6 +167,11 @@
                         margin-top: 1.5vw;
                     }
                 }
+
+                &-footer {
+                    font-size: 1.45vw;
+                    line-height: 1.7vw;
+                }
             }
         }
     }
@@ -223,6 +233,11 @@
                         margin-top: 2vw;
                     }
                 }
+
+                &-footer {
+                    font-size: 1.8vw;
+                    line-height: 1.8vw;
+                }
             }
         }
     }
@@ -256,7 +271,7 @@
 
                     @for $i from 0 through 2 {
                         &.item#{$i + 1} {
-                            font-size: 2.8vw;
+                            font-size: 3vw;
                             line-height: 4vw;
                             width: 100% !important;
                         }
@@ -283,6 +298,10 @@
                             border-radius: 1.1vw;
                         }
                     }
+                }
+
+                &-footer {
+                    display: none;
                 }
             }
         }

@@ -1,0 +1,155 @@
+@use "@/styles/_variables.scss" as constants;
+
+.Benefit {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px;
+
+    &Label {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-start;
+        gap: 5px;
+        opacity: 0;
+
+        &-Text {
+            font-weight: 600;
+            font-size: 25px;
+            line-height: 70px;
+        }
+
+        &-Image {
+            width: 70px;
+            height: 125px;
+        }
+
+        &.in-view {
+            opacity: 1;
+            transition: opacity 1s ease-in;
+        }
+    }
+
+    &Details {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 15px;
+        max-width: 440px;
+
+        &_description {
+            &::first-letter {
+                font-family: "Misto";
+            }
+            font-size: 22px;
+            line-height: 22px;
+
+            @for $i from 0 through 4 {
+                &-item#{$i + 1} {
+                    opacity: 0;
+
+                    &-in-view {
+                        opacity: 1;
+                        transition: opacity 0.5s ease-in #{($i * 0.5) + "s"};
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xmedium) and (max-width: constants.$medium) {
+    .Benefit {
+        &Label {
+            gap: 0.4vw;
+
+            &-Text {
+                font-size: 1.45vw;
+                line-height: 3.5vw;
+            }
+
+            &-Image {
+                width: 4.6vw;
+                height: 8vw;
+            }
+        }
+
+        &Details {
+            gap: 0.7vw;
+            max-width: 25vw;
+
+            &_description {
+                font-size: 1vw;
+                line-height: 1vw;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: #{constants.$xmedium - 1}) {
+    .Benefit {
+        &Label {
+            gap: 0.4vw;
+
+            &-Text {
+                font-size: 1.7vw;
+                line-height: 3.5vw;
+            }
+
+            &-Image {
+                width: 4.6vw;
+                height: 8vw;
+            }
+        }
+
+        &Details {
+            gap: 0.5vw;
+            max-width: 25vw;
+
+            &_description {
+                font-size: 1.1vw;
+                line-height: 1.4vw;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
+    .Benefit {
+        &:last-child {
+            align-self: flex-end;
+        }
+
+        &Label {
+            gap: 0;
+            align-items: baseline;
+
+            &-Text {
+                font-size: 4vw;
+                line-height: 15vw;
+            }
+
+            &-Image {
+                width: 8vw;
+                height: auto;
+            }
+
+            opacity: 1;
+        }
+
+        &Details {
+            gap: 2vw;
+            max-width: 65vw;
+
+            &_description {
+                font-weight: 600;
+                font-size: 3.2vw;
+                line-height: 3.2vw;
+                opacity: 1;
+            }
+        }
+    }
+}

@@ -44,7 +44,9 @@ const Flows = () => {
                         description={strings.flowBlock.phase1.description}
                     />
                 )}
-                <Divider type="flow" className={cn("Divider1", flowsInView && "in-view")} gradientDirection="right" />
+                {screenWidth > 720 && (
+                    <Divider type="flow" className={cn("Divider1", flowsInView && "in-view")} gradientDirection="right" />
+                )}
                 {screenWidth > 720 ? (
                     <FlowDesktop
                         className="Phase2"
@@ -64,7 +66,9 @@ const Flows = () => {
                         additionalInfo={strings.flowBlock.phase2.additionalInfo}
                     />
                 )}
-                <Divider type="flow" className={cn("Divider2", flowsInView && "in-view")} gradientDirection="right" />
+                {screenWidth > 720 && (
+                    <Divider type="flow" className={cn("Divider2", flowsInView && "in-view")} gradientDirection="left" />
+                )}
                 {screenWidth > 720 ? (
                     <FlowDesktop
                         className="Phase3"

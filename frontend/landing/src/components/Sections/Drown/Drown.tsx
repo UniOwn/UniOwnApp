@@ -5,7 +5,7 @@ import Image from "next/image";
 import Slider, { Settings } from "react-slick";
 import { useInView } from "react-intersection-observer";
 
-import { kica, gilroy } from "@/fonts";
+import { misto, kica, gilroy } from "@/fonts";
 import strings from "@/config/strings";
 
 import TwitterLink from "./TwitterLink/TwitterLink";
@@ -58,6 +58,11 @@ const Drown = () => {
                         {strings.drownBlock.container.description}
                     </div>
                     <SliderWrapper />
+                    <pre className={cn("DrownSection-Container_details-footer", kica.className)}>
+                        Stay connected, be
+                        {"\n"}
+                        part of the <span className={misto.className}>revoluzzzion</span>
+                    </pre>
                 </div>
                 <TwitterLink />
             </div>

@@ -98,15 +98,9 @@ a {
 
 @media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
     .Background-TopRight {
-        width: 33.6vw;
-        height: 32.9vw;
+        width: 32vw;
+        height: auto;
         top: 12vw;
-    }
-
-    .Background-TopLeft {
-        top: 30vw;
-        width: 26.3vw;
-        height: 39.1vw;
     }
 
     .Background-Top {
@@ -137,10 +131,6 @@ a {
 
 @media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
     .Background-TopRight {
-        display: none;
-    }
-
-    .Background-TopLeft {
         display: none;
     }
 

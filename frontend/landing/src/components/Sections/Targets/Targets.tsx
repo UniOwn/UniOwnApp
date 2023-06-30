@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
 import strings from "@/config/strings";
-import { kica, gilroy } from "@/fonts";
+import { kica } from "@/fonts";
 import useScreenWidth from "@/hooks/useScreenWidth";
 
 import userEmoji from "../../../../public/images/targets/user.png";
@@ -15,12 +15,10 @@ import aliensRight from "../../../../public/images/targets/aliens-right.png";
 import aliensDesktop from "../../../../public/images/targets/aliens-desktop.png";
 
 import "./Targets.scss";
+import Target from "./Target/Target";
 
 const Targets = () => {
     const { ref: sectionLabel, inView: sectionLabelInView } = useInView({ triggerOnce: true });
-    const { ref: benefitLabes, inView: benefitLabesInView } = useInView({ triggerOnce: true });
-    const { ref: descriptionItems, inView: descriptionItemsInView } = useInView({ triggerOnce: true });
-
     const screenWidth = useScreenWidth();
 
     return (
@@ -38,48 +36,16 @@ const Targets = () => {
                 {strings.targetsBlock.label}
             </div>
             <div className="TargetsSection-Benefits">
-                <div className="Benefit">
-                    <div ref={benefitLabes} className={cn("BenefitLabel", kica.className, benefitLabesInView && "in-view")}>
-                        <div className="BenefitLabel-Text">{strings.targetsBlock.userBenefits.label[0]}</div>
-                        <Image src={userEmoji} alt="" sizes="100vw" className="BenefitLabel-Image" />
-                        <div className="BenefitLabel-Text">{strings.targetsBlock.userBenefits.label[1]}</div>
-                    </div>
-                    <div ref={descriptionItems} className={cn("BenefitDetails", gilroy.className)}>
-                        {strings.targetsBlock.userBenefits.benefits.map((benefit, i) => (
-                            <div
-                                key={benefit}
-                                className={cn(
-                                    "BenefitDetails_description",
-                                    `BenefitDetails_description-item${i + 1}`,
-                                    descriptionItemsInView && `BenefitDetails_description-item${i + 1}-in-view`
-                                )}
-                            >
-                                {benefit}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <div className="Benefit">
-                    <div ref={benefitLabes} className={cn("BenefitLabel", kica.className, benefitLabesInView && "in-view")}>
-                        <div className="BenefitLabel-Text">{strings.targetsBlock.clientBenefits.label[0]}</div>
-                        <Image src={clientEmoji} alt="" sizes="100vw" className="BenefitLabel-Image" />
-                        <div className="BenefitLabel-Text">{strings.targetsBlock.clientBenefits.label[1]}</div>
-                    </div>
-                    <div ref={descriptionItems} className={cn("BenefitDetails", gilroy.className)}>
-                        {strings.targetsBlock.clientBenefits.benefits.map((benefit, i) => (
-                            <div
-                                key={benefit}
-                                className={cn(
-                                    "BenefitDetails_description",
-                                    `BenefitDetails_description-item${i + 1}`,
-                                    descriptionItemsInView && `BenefitDetails_description-item${i + 1}-in-view`
-                                )}
-                            >
-                                {benefit}
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                <Target
+                    labelImage={userEmoji}
+                    label={strings.targetsBlock.userBenefits.label}
+                    benefits={strings.targetsBlock.userBenefits.benefits}
+                />
+                <Target
+                    labelImage={clientEmoji}
+                    label={strings.targetsBlock.clientBenefits.label}
+                    benefits={strings.targetsBlock.clientBenefits.benefits}
+                />
             </div>
         </section>
     );
