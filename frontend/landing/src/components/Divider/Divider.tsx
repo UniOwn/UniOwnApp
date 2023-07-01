@@ -30,10 +30,10 @@ const Divider = ({ type, className, gradientDirection, flexDirection = "row" }: 
                     </div>
                     <div className="DividerWrapper-Mobile_container">
                         {[...new Array(3)].map((item, i) => (
-                            <div key={i} className={cn("DividerWrapper-Mobile_container-dot", "op-8")} />
+                            <div key={i} className={cn("DividerWrapper-Mobile_container-dot", "op-6")} />
                         ))}
                     </div>
-                    <div className={cn("DividerWrapper-Mobile_container-dot", "op-4")} />
+                    <div className={cn("DividerWrapper-Mobile_container-dot", "op-3")} />
                 </div>
             )}
         </div>

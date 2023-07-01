@@ -19,6 +19,7 @@
                 height: auto;
                 top: -125px;
                 left: -85px;
+                filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.2));
             }
 
             &-pill-bottom {
@@ -27,6 +28,16 @@
                 height: auto;
                 top: 350px;
                 left: 350px;
+                filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.2));
+            }
+
+            &-pill-bottom-left {
+                position: absolute;
+                width: 65px;
+                height: auto;
+                top: 250px;
+                left: -60px;
+                filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.2));
             }
         }
 
@@ -71,6 +82,13 @@
                     height: auto;
                     top: 20vw;
                     left: 18vw;
+                }
+
+                &-pill-bottom-left {
+                    width: 5vw;
+                    height: auto;
+                    top: 15vw;
+                    left: -2.5vw;
                 }
             }
 
