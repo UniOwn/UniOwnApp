@@ -1,0 +1,116 @@
+@use "@/styles/_variables.scss" as constants;
+
+.DividerWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: center;
+    gap: 10px;
+
+    &.row {
+        flex-direction: row;
+    }
+
+    &.column {
+        flex-direction: column;
+    }
+
+    @for $i from 0 through 4 {
+        &-Dot#{$i + 1} {
+            opacity: 0;
+
+            &_in-view {
+                opacity: 1 - (1 / 10) * $i;
+                transition: opacity 0.5s ease-in #{($i * 0.5) + "s"};
+            }
+        }
+    }
+
+    &-Mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.2vw;
+
+        &_container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.2vw;
+
+            &-dot {
+                width: 0.2vw;
+                height: 0.2vw;
+                border-radius: 0.1vw;
+                background: #e5e5e5;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
+    .DividerWrapper {
+        gap: 0.7vw;
+
+        &-Mobile {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0.16vw;
+
+            &_container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 0.16vw;
+
+                &-dot {
+                    width: 0.2vw;
+                    height: 0.2vw;
+                    border-radius: 0.1vw;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
+    .DividerWrapper {
+        gap: 1.5vw;
+
+        @for $i from 0 through 4 {
+            &-Dot#{$i + 1} {
+                opacity: 1 - (1 / 10) * $i;
+                width: 1.5vw !important;
+                height: 1.5vw !important;
+                border-radius: 0.75vw !important;
+            }
+        }
+
+        &-Mobile {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1vw;
+
+            &_container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 1vw;
+
+                &-dot {
+                    width: 1vw;
+                    height: 1vw;
+                    border-radius: 0.5vw;
+                }
+            }
+        }
+    }
+}

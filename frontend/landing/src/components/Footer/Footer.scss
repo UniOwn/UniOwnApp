@@ -1,0 +1,224 @@
+@use "@/styles/_variables.scss" as constants;
+
+.AppFooter {
+    margin-top: 80px;
+    min-width: 100%;
+    padding: 50px 230px;
+
+    &-Container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        &_logo {
+            cursor: default;
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            justify-content: flex-start;
+            gap: 15px;
+
+            .FooterLogo {
+                font-weight: 600;
+                font-size: 22px;
+                line-height: 22px;
+            }
+
+            .FooterCurrentYear {
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 22px;
+            }
+        }
+
+        &_section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 32px;
+
+            &-header {
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 24px;
+                text-transform: uppercase;
+            }
+
+            &-linkwrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 10px;
+
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                text-transform: uppercase;
+
+                &-nolink {
+                    cursor: default;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xmedium) and (max-width: constants.$medium) {
+    .AppFooter {
+        margin-top: 5vw;
+        padding: 5vw 10vw;
+
+        &-Container {
+            &_logo {
+                gap: 1vw;
+
+                .FooterLogo {
+                    font-size: 1.35vw;
+                    line-height: 1.35vw;
+                }
+
+                .FooterCurrentYear {
+                    font-size: 1vw;
+                    line-height: 1.35vw;
+                }
+            }
+
+            &_section {
+                gap: 2vw;
+
+                &-header {
+                    font-size: 1vw;
+                    line-height: 1.5vw;
+                }
+
+                &-linkwrapper {
+                    gap: 0.9vw;
+
+                    font-size: 0.9vw;
+                    line-height: 1.5vw;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: #{constants.$xmedium - 1}) {
+    .AppFooter {
+        margin-top: 5vw;
+        padding: 5vw 10vw;
+
+        &-Container {
+            &_logo {
+                gap: 1vw;
+
+                .FooterLogo {
+                    font-size: 1.5vw;
+                    line-height: 1.5vw;
+                }
+
+                .FooterCurrentYear {
+                    font-size: 1.3vw;
+                    line-height: 1.5vw;
+                }
+            }
+
+            &_section {
+                gap: 2vw;
+
+                &-header {
+                    font-size: 1.3vw;
+                    line-height: 1.5vw;
+                }
+
+                &-linkwrapper {
+                    gap: 1.5vw;
+
+                    font-size: 1.1vw;
+                    line-height: 1.5vw;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xsmall) and (max-width: #{constants.$small - 1}) {
+    .AppFooter {
+        margin-top: 32vw;
+        padding: 6vw 5vw;
+
+        &-Container {
+            &_logo {
+                gap: 2.5vw;
+                flex-direction: column;
+
+                .FooterLogo {
+                    font-size: 3.2vw;
+                    line-height: 3vw;
+                }
+
+                .FooterCurrentYear {
+                    font-size: 2.5vw;
+                    line-height: 3.2vw;
+                }
+            }
+
+            &_section {
+                gap: 6vw;
+
+                &-header {
+                    font-size: 2.7vw;
+                    line-height: 3.2vw;
+                }
+
+                &-linkwrapper {
+                    gap: 4vw;
+
+                    font-size: 2.5vw;
+                    line-height: 2.5vw;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$xsmall - 1}) {
+    .AppFooter {
+        margin-top: 32vw;
+        padding: 6vw 5vw;
+
+        &-Container {
+            justify-content: space-between;
+
+            &_logo {
+                flex-direction: column;
+                gap: 2.5vw;
+
+                .FooterLogo {
+                    font-size: 3.2vw;
+                    line-height: 3vw;
+                }
+
+                .FooterCurrentYear {
+                    font-size: 2.5vw;
+                    line-height: 3.2vw;
+                }
+            }
+
+            &_section {
+                &-header {
+                    font-size: 2.9vw;
+                    line-height: 3.2vw;
+                }
+
+                &-linkwrapper {
+                    gap: 4vw;
+                    font-size: 2.6vw;
+                    line-height: 2.8vw;
+                }
+            }
+        }
+    }
+}

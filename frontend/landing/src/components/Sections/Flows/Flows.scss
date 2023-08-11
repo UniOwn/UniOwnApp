@@ -1,0 +1,47 @@
+@use "@/styles/_variables.scss" as constants;
+
+.FlowSection {
+    margin-top: 160px;
+
+    &-Flows {
+        width: inherit;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        .DividerWrapper {
+            opacity: 0;
+
+            @for $i from 0 through 1 {
+                &.Divider#{$i + 1} {
+                    &.in-view {
+                        opacity: 1;
+                        transition: opacity 0.5s ease-in #{($i + 0.5) + "s"};
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
+    .FlowSection {
+        margin-top: 10.5vw;
+    }
+}
+
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
+    .FlowSection {
+        margin-top: 100vw;
+
+        &-Flows {
+            flex-direction: column;
+            gap: 15vw;
+
+            .DividerWrapper {
+                opacity: 1;
+            }
+        }
+    }
+}

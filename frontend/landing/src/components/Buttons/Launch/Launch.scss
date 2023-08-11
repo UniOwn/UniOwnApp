@@ -1,0 +1,92 @@
+@use "@/styles/_variables.scss" as constants;
+
+.LaunchWrapper {
+    &.desktop-only {
+        display: block;
+    }
+
+    &.mobile-only {
+        display: none;
+    }
+
+    position: relative;
+    background: #1263fe;
+    box-shadow: inset -4px -4px 4px rgba(255, 255, 255, 0.18), inset 4px 4px 4px rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
+    cursor: pointer;
+
+    &-Text {
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.86);
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 28px;
+        padding: 2px 34px;
+        z-index: 5;
+        position: relative;
+    }
+
+    &-Mask {
+        z-index: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 134px;
+        height: 31px;
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: #{constants.$xmedium - 1}) {
+    .LaunchWrapper {
+        &.desktop-only {
+            display: block;
+        }
+
+        &.mobile-only {
+            display: none;
+        }
+
+        border-radius: 0.6vw;
+
+        &-Text {
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.86);
+            font-size: 1vw;
+            line-height: 1.8vw;
+            padding: 0.43vw 2.8vw;
+            z-index: 5;
+            position: relative;
+        }
+
+        &-Mask {
+            width: 11.08vw;
+            height: 2.65vw;
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
+    .LaunchWrapper {
+        align-self: center;
+
+        &.desktop-only {
+            display: none;
+        }
+
+        &.mobile-only {
+            display: block;
+        }
+
+        margin-top: 5vw;
+        border-radius: 2.6vw;
+
+        &-Text {
+            font-size: 3vw;
+            line-height: 5vw;
+            padding: 2.9vw 21vw;
+        }
+
+        &-Mask {
+            width: 58.1vw;
+            height: auto;
+        }
+    }
+}

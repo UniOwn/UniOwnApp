@@ -1,0 +1,85 @@
+@use "@/styles/_variables.scss" as constants;
+
+.DrownSection {
+    &-Container {
+        &_logo {
+            width: 500px;
+            height: 450px;
+            position: relative;
+            margin-top: -40px;
+        }
+
+        .TwitterLink {
+            position: absolute;
+            width: 500px;
+            height: auto;
+        }
+    }
+}
+
+@media screen and (min-width: #{constants.$medium + 1}) and (max-width: constants.$large) {
+    .DrownSection {
+        &-Container {
+            &_logo {
+                width: 400px;
+                height: 350px;
+            }
+
+            .TwitterLink {
+                width: 400px;
+                height: auto;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xmedium) and (max-width: constants.$medium) {
+    .DrownSection {
+        &-Container {
+            &_logo {
+                width: 36.6vw;
+                height: 34vw;
+            }
+
+            .TwitterLink {
+                width: 36.6vw;
+                height: auto;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: #{constants.$xmedium - 1}) {
+    .DrownSection {
+        &-Container {
+            &_logo {
+                margin-top: -2vw;
+                width: 40vw;
+                height: 37vw;
+            }
+
+            .TwitterLink {
+                width: 40vw;
+                height: auto;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
+    .DrownSection {
+        &-Container {
+            &_logo {
+                width: 85vw;
+                height: 60vw;
+                margin-top: 0;
+                align-self: center;
+            }
+
+            .TwitterLink {
+                width: 80vw;
+                height: auto;
+            }
+        }
+    }
+}
