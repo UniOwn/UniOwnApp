@@ -1,3 +1,11 @@
+"use client";
+
+import Buy from "@/components/Buy/Buy";
+
 export default function Home() {
-    return <div>Home</div>;
+    return (
+        <div>
+            <Buy />
+        </div>
+    );
 }
