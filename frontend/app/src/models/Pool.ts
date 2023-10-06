@@ -13,15 +13,4 @@ export default interface IPool {
     poolSuccessful: boolean;
 }
 
-export const poolPropertyNames = [
-    "tokenId",
-    "maxAmount",
-    "totalAmount",
-    "endTime",
-    "minParticipation",
-    "itemId",
-    "collection",
-    "marketplace",
-    "poolFinished",
-    "poolSuccessful"
-];
+export const poolPropertyNames = ["tokenId", "maxAmount", "totalAmount", "endTime", "minParticipation", "itemId", "collection", "marketplace", "poolFinished", "poolSuccessful"];
