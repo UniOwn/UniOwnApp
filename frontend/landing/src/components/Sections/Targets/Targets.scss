@@ -1,0 +1,114 @@
+@use "@/styles/_variables.scss" as constants;
+
+.TargetsSection {
+    margin-top: 200px;
+    position: relative;
+
+    &-AliensLeft {
+        display: none;
+    }
+
+    &-AliensRight {
+        display: none;
+    }
+
+    &-AliensDesktop {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 800px;
+        height: auto;
+        z-index: -1;
+    }
+
+    &-Benefits {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: inherit;
+        gap: 120px;
+
+        :last-child {
+            .Benefit {
+                &Details {
+                    width: 100%;
+                    text-align: right;
+                    align-items: flex-end;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xmedium) and (max-width: constants.$medium) {
+    .TargetsSection {
+        margin-top: 15vw;
+
+        &-AliensDesktop {
+            top: 80%;
+            width: 40vw;
+        }
+
+        &-Benefits {
+            gap: 7vw;
+        }
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: #{constants.$xmedium - 1}) {
+    .TargetsSection {
+        &-AliensDesktop {
+            top: 80%;
+            width: 40vw;
+        }
+
+        &-Benefits {
+            gap: 8vw;
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
+    .TargetsSection {
+        margin-top: 25vw;
+        gap: 20vw !important;
+
+        &-AliensLeft {
+            position: absolute;
+            display: block;
+            top: 75vw;
+            width: 48.5vw;
+            height: auto;
+            margin-left: -9vw;
+        }
+
+        &-AliensRight {
+            display: block;
+            top: -10vw;
+            right: 0;
+            width: 40.1vw;
+            height: 63.3vw;
+            position: absolute;
+            z-index: -1;
+        }
+
+        &-Benefits {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 40vw;
+
+            :last-child {
+                .Benefit {
+                    &Details {
+                        width: 100%;
+                        text-align: right;
+                        align-items: flex-end;
+                    }
+                }
+            }
+        }
+    }
+}

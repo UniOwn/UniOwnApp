@@ -1,0 +1,46 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "next/core-web-vitals",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "plugins": ["react-hooks", "prettier"],
+    "rules": {
+        "no-undef": 0,
+        "no-debugger": "error",
+        "brace-style": "error",
+        "block-spacing": "error",
+        "eol-last": ["error", "always"],
+        "react/react-in-jsx-scope": "off",
+        "comma-dangle": ["error", "never"],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "arrow-parens": ["error", "as-needed"],
+        "no-console": ["error", { "allow": ["warn", "error"] }],
+        "padding-line-between-statements": [
+            "error",
+            { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+            { "blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"] }
+        ],
+        "newline-before-return": ["error"],
+        "import/order": [
+            "error",
+            {
+                "newlines-between": "always",
+                "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
+            }
+        ],
+        "import/no-named-as-default-member": ["off"],
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ]
+    }
+}

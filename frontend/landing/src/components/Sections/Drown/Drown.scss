@@ -1,0 +1,309 @@
+@use "@/styles/_variables.scss" as constants;
+
+.DrownSection {
+    margin-top: 300px;
+    gap: 20px !important;
+
+    &-Container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 120px;
+        width: inherit;
+        opacity: 0;
+
+        &.in-view {
+            opacity: 1;
+            transition: opacity 0.5s ease-in;
+        }
+
+        &_details {
+            width: 700px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 30px;
+
+            .DrownHeader {
+                font-weight: 600;
+                font-size: 25px;
+                line-height: 30px;
+            }
+
+            .DrownDetail {
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 26px;
+                color: #ffffff;
+                padding-top: 20px;
+
+                &_bold {
+                    font-size: 22px;
+                    line-height: 30px;
+                }
+
+                &-Icon {
+                    float: left;
+                    margin-top: -20px;
+                    width: 40px;
+                    height: auto;
+                }
+
+                &.item1 {
+                    width: 650px !important;
+                }
+
+                &.item2 {
+                    width: 650px !important;
+                }
+
+                &.item3 {
+                    width: 650px !important;
+
+                    .DrownDetail-Icon {
+                        margin-right: 5px;
+                    }
+                }
+            }
+
+            .Slider {
+                width: 660px;
+
+                .Dot {
+                    cursor: pointer;
+                    border-radius: 6px;
+                }
+
+                .slick-active {
+                    .Dot {
+                        scale: 1.2;
+                        opacity: 1 !important;
+                        transition: scale 0.3s ease-in;
+                    }
+                }
+
+                &Dots {
+                    display: flex !important;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap: 10px;
+                    list-style: none;
+                    margin-top: 20px;
+                }
+            }
+
+            &-footer {
+                font-size: 22px;
+                line-height: 25px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: #{constants.$medium + 1}) and (max-width: constants.$large) {
+    .DrownSection {
+        &-Container {
+            gap: 3vw;
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xmedium) and (max-width: constants.$medium) {
+    .DrownSection {
+        margin-top: 20vw;
+        gap: 3vw !important;
+
+        &-Container {
+            gap: 0vw;
+
+            &_details {
+                width: 44vw;
+                gap: 2vw;
+
+                .DrownHeader {
+                    font-size: 1.6vw;
+                    line-height: 1.9vw;
+                }
+
+                .DrownDetail {
+                    font-size: 1.3vw;
+                    line-height: 1.5vw;
+                    padding-top: 1.2vw;
+
+                    &_bold {
+                        font-size: 1.3vw;
+                        line-height: 1.5vw;
+                        font-weight: 100;
+                    }
+
+                    &-Icon {
+                        float: left;
+                        margin-top: -1.2vw;
+                        width: 2.5vw;
+                        height: auto;
+                    }
+
+                    &.item1 {
+                        width: 39vw !important;
+                    }
+
+                    &.item2 {
+                        width: 39vw !important;
+                    }
+
+                    &.item3 {
+                        width: 39vw !important;
+                    }
+                }
+
+                .Slider {
+                    width: 40vw;
+
+                    &Dots {
+                        gap: 0.8vw;
+                        margin-top: 1.5vw;
+                    }
+                }
+
+                &-footer {
+                    font-size: 1.45vw;
+                    line-height: 1.7vw;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: #{constants.$xmedium - 1}) {
+    .DrownSection {
+        margin-top: 25vw;
+        gap: 4vw !important;
+
+        &-Container {
+            gap: 0;
+
+            &_details {
+                width: 43vw;
+                gap: 3vw;
+
+                .DrownHeader {
+                    display: none;
+                }
+
+                .DrownDetail {
+                    color: #ffffff;
+                    font-size: 1.4vw;
+                    line-height: 2vw;
+                    padding-top: 0.8vw;
+
+                    &_bold {
+                        font-size: 1.4vw;
+                        line-height: 1.8vw;
+                        font-weight: 100;
+                    }
+
+                    &-Icon {
+                        float: left;
+                        margin-top: -0.7vw;
+                        width: 3vw;
+                        height: 2.5vw;
+                    }
+
+                    &.item1 {
+                        width: 40vw !important;
+                    }
+
+                    &.item2 {
+                        width: 42vw !important;
+                    }
+
+                    &.item3 {
+                        width: 40vw !important;
+                    }
+                }
+
+                .Slider {
+                    width: 100%;
+
+                    &Dots {
+                        gap: 0.8vw;
+                        margin-top: 2vw;
+                    }
+                }
+
+                &-footer {
+                    font-size: 1.8vw;
+                    line-height: 1.8vw;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
+    .DrownSection {
+        margin-top: 25vw;
+        gap: 2vw !important;
+
+        &-Container {
+            opacity: 1;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 20vw;
+
+            &_details {
+                gap: 8vw;
+                width: 100%;
+
+                .DrownDetail {
+                    color: #ffffff;
+                    padding-top: 4.5vw;
+
+                    &_bold {
+                        font-size: 3.2vw;
+                        line-height: 4vw;
+                        font-weight: 100;
+                    }
+
+                    @for $i from 0 through 2 {
+                        &.item#{$i + 1} {
+                            font-size: 3vw;
+                            line-height: 4vw;
+                            width: 100% !important;
+                        }
+                    }
+
+                    &-Icon {
+                        float: left;
+                        margin-top: -4.5vw;
+                        width: 8vw;
+                        height: auto;
+                    }
+                }
+
+                .Slider {
+                    width: 100%;
+
+                    &Dots {
+                        gap: 2vw;
+                        margin-top: 5vw;
+
+                        .Dot {
+                            width: 2.2vw;
+                            height: 2.2vw;
+                            border-radius: 1.1vw;
+                        }
+                    }
+                }
+
+                &-footer {
+                    display: none;
+                }
+            }
+        }
+    }
+}

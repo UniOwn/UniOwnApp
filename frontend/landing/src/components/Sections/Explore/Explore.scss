@@ -1,0 +1,50 @@
+@use "@/styles/_variables.scss" as constants;
+
+.ExploreSection {
+    width: 100%;
+    margin-top: 430px;
+    text-align: center;
+    align-self: center;
+
+    &-Heading {
+        background: linear-gradient(
+            90deg,
+            #ffffff -4.55%,
+            #d6d6d6 -4.53%,
+            #ecf3ff 34.65%,
+            #4c4d4f 60.27%,
+            rgba(17, 17, 17, 0.0666667) 100.96%
+        );
+        font-weight: 600;
+        font-size: 63px;
+        line-height: 67px;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        opacity: 0;
+
+        &.active {
+            opacity: 1;
+            transition: opacity 1s ease-in;
+        }
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
+    .ExploreSection {
+        margin-top: 29vw;
+
+        &-Heading {
+            font-size: 3.6vw;
+            line-height: 4.4vw;
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
+    .ExploreSection {
+        &.desktop-only {
+            display: none;
+        }
+    }
+}

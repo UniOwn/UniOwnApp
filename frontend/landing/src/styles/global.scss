@@ -1,0 +1,180 @@
+@use "_variables.scss" as constants;
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    background-color: #111111;
+    color: #ffffff;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: 'Misto';
+    src: local('Misto'), url(../fonts/Misto.woff) format('woff');
+}
+
+.Background-TopRight {
+    position: absolute;
+    right: 0;
+    top: 180px;
+    z-index: 0;
+    width: 600px;
+    height: auto;
+}
+
+.Background-Top {
+    position: absolute;
+    left: 40%;
+    top: 0;
+    z-index: 0;
+    width: 300px;
+    height: auto;
+}
+
+.Background-Mobile {
+    display: none;
+}
+
+.Landing-Page {
+    font-weight: 400;
+    margin-top: 240px;
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    .SectionWrapper {
+        width: 100%;
+        padding: 0 230px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 130px;
+
+        &-Label {
+            width: inherit;
+            font-weight: 600;
+            font-size: 45px;
+            line-height: 70px;
+            opacity: 0;
+
+            &.in-view {
+                opacity: 1;
+                transition: opacity 1s ease-in;
+            }
+        }
+    }
+
+    .op-8 {
+        opacity: 0.8;
+    }
+
+    .op-6 {
+        opacity: 0.6;
+    }
+
+    .op-4 {
+        opacity: 0.4;
+    }
+
+    .op-3 {
+        opacity: 0.3;
+    }
+
+    .MainDot {
+        width: 10px;
+        height: 10px;
+        background: #ffffff;
+        border-radius: 5px;
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: constants.$medium) {
+    .Background-TopRight {
+        width: 32vw;
+        height: auto;
+        top: 10vw;
+    }
+
+    .Background-Top {
+        width: 20vw;
+        height: auto;
+    }
+
+    .Landing-Page {
+        margin-top: 12vw;
+
+        .SectionWrapper {
+            padding: 0 9.5vw;
+            gap: 8.5vw;
+
+            &-Label {
+                font-size: 3vw;
+                line-height: 4.6vw;
+            }
+        }
+
+        .MainDot {
+            width: 0.7vw;
+            height: 0.7vw;
+            border-radius: 0.35vw;
+        }
+    }
+}
+
+@media screen and (min-width: constants.$xxsmall) and (max-width: #{constants.$small - 1}) {
+    .Background-TopRight {
+        display: none;
+    }
+
+    .Background-Top {
+        left: 70%;
+        width: 30vw;
+    }
+
+    .Background-Mobile {
+        display: block;
+        position: absolute;
+        left: 5vw;
+        top: 95vw;
+        z-index: 0;
+        width: 90vw;
+        height: auto;
+    }
+
+    .Landing-Page {
+        margin-top: 20vw;
+
+        .SectionWrapper {
+            padding: 0 6.5vw;
+            gap: 20vw;
+
+            &-Label {
+                opacity: 1;
+                font-size: 5vw;
+                line-height: 6vw;
+            }
+        }
+
+        .MainDot {
+            width: 2.1vw;
+            height: 2.1vw;
+            border-radius: 1.05vw;
+        }
+    }
+}

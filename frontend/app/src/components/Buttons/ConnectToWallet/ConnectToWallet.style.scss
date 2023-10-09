@@ -1,0 +1,29 @@
+.Metamask {
+    cursor: pointer;
+    margin-left: 60px;
+
+    &.Connected {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 7px;
+        border: 1px solid #cce9e7;
+        padding: 7px 14px;
+        border-radius: 11px;
+    }
+
+    &.Disconnected {
+        background-color: #cce9e7;
+        font-size: 13px;
+        color: #111111;
+        padding: 7px 14px;
+        border-radius: 11px;
+    }
+
+    .Address {
+        font-size: 13px;
+        color: #cce9e7;
+        font-weight: 500;
+    }
+}

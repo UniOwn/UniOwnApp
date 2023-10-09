@@ -1,0 +1,199 @@
+@use "@/styles/_variables.scss" as constants;
+
+.Flow {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 30px;
+    opacity: 0;
+
+    &:first-child {
+        .FlowDescription {
+            max-width: 280px;
+        }
+    }
+
+    &.Phase1 {
+        .FlowLabel {
+            &-Image {
+                width: 160px;
+                height: 121px;
+            }
+        }
+    }
+
+    &.Phase2 {
+        .FlowLabel {
+            &-Image {
+                width: 150px;
+                height: 139px;
+            }
+        }
+    }
+
+    &.Phase3 {
+        .FlowLabel {
+            &-Image {
+                width: 126px;
+                height: 143px;
+            }
+        }
+    }
+
+    @for $i from 0 through 2 {
+        &.Phase#{$i + 1} {
+            &.in-view {
+                opacity: 1;
+                transition: opacity 0.5s ease-in #{$i + "s"};
+            }
+        }
+    }
+
+    &Label {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-start;
+        height: 145px;
+        gap: 24px;
+
+        &-Text {
+            font-weight: 600;
+            font-size: 45px;
+            line-height: 70px;
+        }
+    }
+
+    &Description {
+        font-weight: 500;
+        font-size: 22px;
+        max-width: 350px;
+    }
+
+    &AdditionalInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        font-size: 22px;
+        font-weight: 500;
+        opacity: 0.6;
+    }
+}
+
+@media screen and (min-width: constants.$xmedium) and (max-width: constants.$medium) {
+    .Flow {
+        gap: 2vw;
+
+        &:first-child {
+            .FlowDescription {
+                max-width: 13vw;
+            }
+        }
+
+        &.Phase1 {
+            .FlowLabel {
+                &-Image {
+                    width: 9.8vw;
+                    height: 8vw;
+                }
+            }
+        }
+
+        &.Phase2 {
+            .FlowLabel {
+                &-Image {
+                    width: 8.6vw;
+                    height: 7.6vw;
+                }
+            }
+        }
+
+        &.Phase3 {
+            .FlowLabel {
+                &-Image {
+                    width: 7.2vw;
+                    height: 8.1vw;
+                }
+            }
+        }
+
+        &Label {
+            height: 9vw;
+            gap: 1.3vw;
+
+            &-Text {
+                font-size: 3vw;
+                line-height: 4.5vw;
+            }
+        }
+
+        &Description {
+            font-size: 1vw;
+            max-width: 15.8vw;
+        }
+
+        &AdditionalInfo {
+            font-size: 1vw;
+        }
+    }
+}
+
+@media screen and (min-width: constants.$small) and (max-width: #{constants.$xmedium - 1}) {
+    .Flow {
+        gap: 1vw;
+
+        &:first-child {
+            .FlowDescription {
+                max-width: 12vw;
+            }
+        }
+
+        &.Phase1 {
+            .FlowLabel {
+                &-Image {
+                    width: 9.8vw;
+                    height: 8vw;
+                }
+            }
+        }
+
+        &.Phase2 {
+            .FlowLabel {
+                &-Image {
+                    width: 8.6vw;
+                    height: 7.9vw;
+                }
+            }
+        }
+
+        &.Phase3 {
+            .FlowLabel {
+                &-Image {
+                    width: 7.2vw;
+                    height: 8.1vw;
+                }
+            }
+        }
+
+        &Label {
+            height: 9vw;
+            gap: 1.3vw;
+
+            &-Text {
+                font-size: 3vw;
+                line-height: 4vw;
+            }
+        }
+
+        &Description {
+            font-size: 1vw;
+            max-width: 18vw;
+        }
+
+        &AdditionalInfo {
+            font-size: 1.2vw;
+        }
+    }
+}
