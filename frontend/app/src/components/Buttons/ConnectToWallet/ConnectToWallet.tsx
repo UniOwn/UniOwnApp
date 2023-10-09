@@ -2,11 +2,12 @@ import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
 
-import withWagmi from "@/hooks/wagmi/withWagmi";
+import withWagmi from "@/shared/hocs/wagmi/withWagmi";
 import { getShortAddress } from "@/utils/utils";
+
 import metamaskLogo from "@/images/metamask_logo.png";
 
-import "./ConnectToWallet.scss";
+import "./ConnectToWallet.style.scss";
 
 const ConnectWalletButton = () => {
     const { address, isConnected } = useAccount();
