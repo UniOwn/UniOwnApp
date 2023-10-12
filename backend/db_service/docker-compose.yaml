@@ -11,9 +11,6 @@ services:
         init: true
         env_file:
             - .env.development.local
-        depends_on:
-            - mongodb
-            - redis_uniown_backend
         networks:
             uniown-backend:
 
@@ -21,7 +18,7 @@ services:
         image: mongo:latest
         container_name: mongodb
         ports:
-            - "27047-27049:27037-27039"
+            - "27037-27039:27017-27019"
         restart: unless-stopped
         init: true
         volumes:
@@ -35,7 +32,7 @@ services:
         image: redis:latest
         container_name: redis_uniown_backend
         ports:
-            - "6680:6679"
+            - "6390:6379"
         restart: unless-stopped
         init: true
         networks:

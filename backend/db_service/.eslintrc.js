@@ -45,16 +45,9 @@ module.exports = {
             }
         ],
         "import/no-named-as-default-member": ["off"],
-        "import/extensions": [
-            "error",
-            "ignorePackages",
-            {
-                js: "never",
-                jsx: "never",
-                ts: "never",
-                tsx: "never"
-            }
-        ],
-        "import/no-unresolved": 0
+        "import/extensions": 0,
+        "import/no-unresolved": 0,
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "error"
     }
 };

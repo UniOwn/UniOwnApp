@@ -2,6 +2,7 @@ import { Module } from "@nestjs/common";
 import { CacheModule } from "@nestjs/cache-manager";
 import * as redisStore from "cache-manager-redis-store";
 import { ConfigModule, ConfigService } from "@nestjs/config";
+import { environment } from "src/constants";
 
 import { CacheService } from "./cache.service";
 
@@ -12,8 +13,8 @@ import { CacheService } from "./cache.service";
             inject: [ConfigService],
             useFactory: (configService: ConfigService) => ({
                 store: redisStore,
-                url: configService.get("REDIS_URL"),
-                ttl: configService.get("CACHE_TTL")
+                url: configService.get(environment.redisConnectionString),
+                ttl: configService.get(environment.redisCache)
             })
         }),
         ConfigModule

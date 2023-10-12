@@ -9,6 +9,7 @@ import { UsersModule } from "./users/users.module";
 import { DaosModule } from "./daos/daos.module";
 import { ProposalsModule } from "./proposals/proposals.module";
 import { CacheConfigModule } from "./cache/cache.module";
+import { environment } from "./constants";
 
 @Module({
     imports: [
@@ -21,7 +22,7 @@ import { CacheConfigModule } from "./cache/cache.module";
             imports: [ConfigModule],
             inject: [ConfigService],
             useFactory: async (configService: ConfigService) => ({
-                uri: configService.get("MONGO_URL")
+                uri: configService.get(environment.mongoConnectionString)
             })
         }),
         PoolsModule,
