@@ -1,67 +1,34 @@
+import { Model } from "mongoose";
 import { Injectable } from "@nestjs/common";
-import { InjectConnection, InjectModel } from "@nestjs/mongoose";
-import mongoose, { Model } from "mongoose";
+import { InjectModel } from "@nestjs/mongoose";
 
+import { UserDto } from "./dto/user.dto";
 import { User, UserDocument } from "./schemas/user.schema";
-import { CreateUserDto } from "./dto/create-user.dto";
-import { UpdateUserDto } from "./dto/update-user.dto";
 
 @Injectable()
 export class UserService {
-    constructor(
-        @InjectModel(User.name) private userModel: Model<UserDocument>,
-        @InjectConnection() private readonly connection: mongoose.Connection
-    ) {}
+    constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
     async getAll(): Promise<User[]> {
-        return await this.userModel.find();
+        return await this.userModel.find().exec();
     }
 
     async getById(id: string) {
-        return this.userModel.findById(id);
+        return await this.userModel.findById(id).exec();
     }
 
-    async create(userDto: CreateUserDto): Promise<User> {
-        const session = await this.connection.startSession();
+    async create(userDto: UserDto): Promise<User> {
+        const newUser = await this.userModel.create(userDto);
 
-        let user: User;
-
-        await session.withTransaction(async () => {
-            const newUser = new this.userModel(userDto);
-
-            user = await newUser.save({ session });
-        });
-
-        session.endSession();
-
-        return user;
+        return newUser;
     }
 
     async remove(id: string): Promise<User> {
-        const session = await this.connection.startSession();
-
-        let user: User;
-
-        await session.withTransaction(async () => {
-            user = await this.userModel.findByIdAndRemove(id).session(session);
-        });
-
-        session.endSession();
-
-        return user;
+        // TODO: add transaction
+        return await this.userModel.findByIdAndRemove(id).exec();
     }
 
-    async update(id: string, userDto: UpdateUserDto): Promise<User> {
-        const session = await this.connection.startSession();
-
-        let user: User;
-
-        await session.withTransaction(async () => {
-            user = await this.userModel.findByIdAndUpdate(id, userDto).session(session);
-        });
-
-        session.endSession();
-
-        return user;
+    async update(id: string, userDto: UserDto): Promise<User> {
+        return await this.userModel.findByIdAndUpdate(id, userDto).exec();
     }
 }
