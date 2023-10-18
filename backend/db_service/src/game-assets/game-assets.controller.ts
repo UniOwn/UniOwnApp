@@ -1,3 +1,4 @@
+import { Types } from "mongoose";
 import { ApiTags } from "@nestjs/swagger";
 import { Body, Controller, Delete, Get, Header, HttpCode, HttpStatus, Param, Post, Put } from "@nestjs/common";
 
@@ -19,7 +20,7 @@ export class GameAssetsController {
                 tokenId: "0xtokenId",
                 price: 20.91,
                 chainId: "0xchainId",
-                gameId
+                gameId: Types.ObjectId.createFromHexString(gameId)
             });
         });
 

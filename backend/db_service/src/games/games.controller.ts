@@ -1,3 +1,4 @@
+import { Types } from "mongoose";
 import { ApiTags } from "@nestjs/swagger";
 import { Body, Controller, Delete, Get, Header, HttpCode, HttpStatus, Param, Post, Put } from "@nestjs/common";
 
@@ -18,7 +19,7 @@ export class GamesController {
                 contractAddress: "0xcontractAddress",
                 chainId: "0xchainId",
                 imageLink: "https://axieinfinity.com/images/templates/home/news/new-releases-in-project-t.jpg",
-                ownerId
+                ownerId: Types.ObjectId.createFromHexString(ownerId)
             });
         });
 
