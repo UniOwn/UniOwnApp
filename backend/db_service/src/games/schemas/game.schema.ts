@@ -1,4 +1,4 @@
-import { Document } from "mongoose";
+import { Document, Types } from "mongoose";
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 
 export type GameDocument = Game & Document;
@@ -21,7 +21,7 @@ export class Game {
     imageLink: string;
 
     @Prop()
-    ownerId: string;
+    ownerId: Types.ObjectId;
 }
 
 export const GameSchema = SchemaFactory.createForClass(Game);

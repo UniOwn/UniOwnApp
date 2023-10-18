@@ -10,7 +10,18 @@ export class UserService {
     constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
     async getAll(): Promise<User[]> {
-        return await this.userModel.find().exec();
+        return await this.userModel
+            .aggregate([
+                {
+                    $lookup: {
+                        from: "games",
+                        localField: "_id",
+                        foreignField: "ownerId",
+                        as: "games"
+                    }
+                }
+            ])
+            .exec();
     }
 
     async getById(id: string) {
@@ -24,7 +35,6 @@ export class UserService {
     }
 
     async remove(id: string): Promise<User> {
-        // TODO: add transaction
         return await this.userModel.findByIdAndRemove(id).exec();
     }
 
