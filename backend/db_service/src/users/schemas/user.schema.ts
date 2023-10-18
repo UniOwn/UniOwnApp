@@ -1,36 +1,27 @@
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 
 export type UserDocument = User & Document;
 
 @Schema()
 export class User {
     @Prop()
-    id: string;
+    id?: string;
 
     @Prop()
-    name: string;
-
-    @Prop()
-    welcomeMessage?: string;
+    nickname: string;
 
     @Prop()
     photoUrl?: string;
 
     @Prop()
-    headerPhotoUrl?: string;
-
-    @Prop()
     role?: string;
 
     @Prop()
-    email?: string[] | null;
+    email?: string[];
 
     @Prop()
-    phone?: string[] | null;
-
-    @Prop()
-    availabilityText?: string;
+    phone?: string[];
 
     @Prop()
     locale?: string;
@@ -39,7 +30,13 @@ export class User {
     createdAt: number;
 
     @Prop()
-    pushTokens?: string;
+    likedGameIds?: string[];
+
+    @Prop()
+    likedAssetIds?: string[];
+
+    @Prop()
+    hasMintedPassport: boolean;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

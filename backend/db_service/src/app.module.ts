@@ -1,15 +1,12 @@
 import { Module } from "@nestjs/common";
-import { ConfigService, ConfigModule } from "@nestjs/config";
 import { MongooseModule } from "@nestjs/mongoose";
+import { ConfigService, ConfigModule } from "@nestjs/config";
 
-import { AppController } from "./app.controller";
-import { AppService } from "./app.service";
-import { PoolsModule } from "./pools/pools.module";
-import { UsersModule } from "./users/users.module";
-import { DaosModule } from "./daos/daos.module";
-import { ProposalsModule } from "./proposals/proposals.module";
-import { CacheConfigModule } from "./cache/cache.module";
 import { environment } from "./constants";
+import { UsersModule } from "./users/users.module";
+import { GamesModule } from "./games/games.module";
+import { CacheConfigModule } from "./cache/cache.module";
+import { GameassetsModule } from "./game-assets/game-assets.module";
 
 @Module({
     imports: [
@@ -25,12 +22,9 @@ import { environment } from "./constants";
                 uri: configService.get(environment.mongoConnectionString)
             })
         }),
-        PoolsModule,
         UsersModule,
-        DaosModule,
-        ProposalsModule
-    ],
-    controllers: [AppController],
-    providers: [AppService]
+        GamesModule,
+        GameassetsModule
+    ]
 })
 export class AppModule {}

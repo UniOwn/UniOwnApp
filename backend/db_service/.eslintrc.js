@@ -48,6 +48,7 @@ module.exports = {
         "import/extensions": 0,
         "import/no-unresolved": 0,
         "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": "error"
+        "@typescript-eslint/no-unused-vars": "error",
+        "import/no-duplicates": ["error", {"considerQueryString": true}]
     }
 };
