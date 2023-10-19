@@ -11,8 +11,8 @@ import { GameAssetDto } from "./dto/game-asset.dto";
 export class GameAssetsController {
     constructor(private readonly gameAssetsService: GameAssetsService) {}
 
-    @Get("/create-gameassets-dev/:gameId")
-    createUsersDev(@Param("gameId") gameId: string): boolean {
+    @Get("/create-gameassets-dev/:ownerId")
+    createUsersDev(@Param("ownerId") gameId: string): boolean {
         [...new Array(5)].forEach((_, i) => {
             this.gameAssetsService.create({
                 name: `GameAsset ${i}`,
@@ -20,7 +20,7 @@ export class GameAssetsController {
                 tokenId: "0xtokenId",
                 price: 20.91,
                 chainId: "0xchainId",
-                gameId: Types.ObjectId.createFromHexString(gameId)
+                ownerId: Types.ObjectId.createFromHexString(gameId)
             });
         });
 

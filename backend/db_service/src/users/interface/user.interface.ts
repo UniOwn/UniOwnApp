@@ -1,12 +1,12 @@
-export class UserDto {
-    readonly id?: string;
+import { Document } from "mongoose";
+
+export interface IUser extends Document {
     readonly nickname: string;
     readonly photoUrl?: string;
     readonly role?: string;
-    readonly email?: string[] | null;
-    readonly phone?: string[] | null;
+    readonly email?: string[];
+    readonly phone?: string[];
     readonly locale?: string;
-    readonly createdAt: number;
     readonly likedGameIds?: string[];
     readonly likedAssetIds?: string[];
     readonly hasMintedPassport: boolean;
