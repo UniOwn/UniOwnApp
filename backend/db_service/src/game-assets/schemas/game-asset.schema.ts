@@ -1,13 +1,10 @@
-import { Document } from "mongoose";
+import { Document, Types } from "mongoose";
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 
 export type GameAssetDocument = GameAsset & Document;
 
-@Schema()
+@Schema({ timestamps: true })
 export class GameAsset {
-    @Prop()
-    id?: string;
-
     @Prop()
     name: string;
 
@@ -24,7 +21,10 @@ export class GameAsset {
     chainId: string;
 
     @Prop()
-    gameId?: string;
+    gameId?: Types.ObjectId;
+
+    @Prop()
+    ownerId: Types.ObjectId;
 }
 
 export const GameAssetSchema = SchemaFactory.createForClass(GameAsset);

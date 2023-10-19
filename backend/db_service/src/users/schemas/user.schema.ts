@@ -1,13 +1,10 @@
-import { Document } from "mongoose";
+import { Document, model } from "mongoose";
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 
 export type UserDocument = User & Document;
 
-@Schema()
+@Schema({ timestamps: true, toJSON: { virtuals: true }, toObject: { virtuals: true } })
 export class User {
-    @Prop()
-    id?: string;
-
     @Prop()
     nickname: string;
 
@@ -27,9 +24,6 @@ export class User {
     locale?: string;
 
     @Prop()
-    createdAt: number;
-
-    @Prop()
     likedGameIds?: string[];
 
     @Prop()
@@ -40,3 +34,4 @@ export class User {
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
+export const UserModel = model("User", UserSchema);

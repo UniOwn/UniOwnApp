@@ -8,4 +8,5 @@ export class GameAssetDto {
     readonly price: number;
     readonly chainId: string;
     readonly gameId?: Types.ObjectId;
+    readonly ownerId: Types.ObjectId;
 }

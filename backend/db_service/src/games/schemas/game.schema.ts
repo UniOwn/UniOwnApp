@@ -3,11 +3,8 @@ import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 
 export type GameDocument = Game & Document;
 
-@Schema()
+@Schema({ timestamps: true })
 export class Game {
-    @Prop()
-    id?: string;
-
     @Prop()
     name: string;
 
