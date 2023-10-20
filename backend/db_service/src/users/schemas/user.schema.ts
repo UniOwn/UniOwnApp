@@ -1,4 +1,4 @@
-import { Document, model } from "mongoose";
+import { Document } from "mongoose";
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 
 export type UserDocument = User & Document;
@@ -34,4 +34,3 @@ export class User {
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
-export const UserModel = model("User", UserSchema);

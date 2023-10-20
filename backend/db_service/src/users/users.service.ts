@@ -2,10 +2,10 @@ import { Model } from "mongoose";
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 
+import { User } from "./schemas/user.schema";
 import { IUser } from "./interface/user.interface";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
-import { User, UserModel } from "./schemas/user.schema";
 
 @Injectable()
 export class UserService {
@@ -19,9 +19,11 @@ export class UserService {
                         from: "games",
                         localField: "_id",
                         foreignField: "ownerId",
-                        as: "games"
+                        as: "games",
+                        pipeline: [{ $set: { id: "$_id" } }]
                     }
-                }
+                },
+                { $set: { id: "$_id" } }
             ])
             .exec();
 
@@ -29,7 +31,7 @@ export class UserService {
             throw new NotFoundException(`Users not found`);
         }
 
-        return users.map(user => new UserModel({ ...user }));
+        return users;
     }
 
     async getById(id: string): Promise<IUser> {
