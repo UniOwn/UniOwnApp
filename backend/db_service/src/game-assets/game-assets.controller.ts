@@ -12,7 +12,7 @@ export class GameAssetsController {
     constructor(private readonly gameAssetsService: GameAssetsService) {}
 
     @Get("/create-gameassets-dev/:ownerId")
-    createUsersDev(@Param("ownerId") gameId: string): boolean {
+    createGameAssetDev(@Param("ownerId") gameId: string): boolean {
         [...new Array(5)].forEach((_, i) => {
             this.gameAssetsService.create({
                 name: `GameAsset ${i}`,
@@ -28,29 +28,29 @@ export class GameAssetsController {
     }
 
     @Get()
-    getAllUsers(): Promise<GameAsset[]> {
+    getAllGameAssets(): Promise<GameAsset[]> {
         return this.gameAssetsService.getAll();
     }
 
     @Get(":id")
-    getUser(@Param("id") id: string): Promise<GameAsset> {
+    getGameAsset(@Param("id") id: string): Promise<GameAsset> {
         return this.gameAssetsService.getById(id);
     }
 
     @Post()
     @HttpCode(HttpStatus.CREATED)
     @Header("Cache-Control", "none")
-    createUser(@Body() gameAssetDto: GameAssetDto): Promise<GameAsset> {
+    createGameAsset(@Body() gameAssetDto: GameAssetDto): Promise<GameAsset> {
         return this.gameAssetsService.create(gameAssetDto);
     }
 
     @Delete(":id")
-    removeUser(@Param("id") id: string): Promise<GameAsset> {
+    removeGameAsset(@Param("id") id: string): Promise<GameAsset> {
         return this.gameAssetsService.remove(id);
     }
 
     @Put(":id")
-    updateUser(@Param("id") id: string, @Body() gameAssetDto: GameAssetDto): Promise<GameAsset> {
+    updateGameAsset(@Param("id") id: string, @Body() gameAssetDto: GameAssetDto): Promise<GameAsset> {
         return this.gameAssetsService.update(id, gameAssetDto);
     }
 }
