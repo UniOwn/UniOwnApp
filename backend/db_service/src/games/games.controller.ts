@@ -1,10 +1,12 @@
 import { Types } from "mongoose";
 import { ApiTags } from "@nestjs/swagger";
+import { ParseObjectIdPipe } from "src/utils";
 import { Body, Controller, Delete, Get, Header, HttpCode, HttpStatus, Param, Post, Put } from "@nestjs/common";
 
-import { GameDto } from "./dto/game.dto";
-import { Game } from "./schemas/game.schema";
 import { GamesService } from "./games.service";
+import { IGame } from "./interface/game.interface";
+import { CreateGameDto } from "./dto/create-game.dto";
+import { UpdateGameDto } from "./dto/update-game.dto";
 
 @ApiTags("games")
 @Controller("games")
@@ -27,29 +29,29 @@ export class GamesController {
     }
 
     @Get()
-    async getAllGames(): Promise<Game[]> {
+    async getAllGames(): Promise<IGame[]> {
         return this.gameService.getAll();
     }
 
     @Get(":id")
-    async getGame(@Param("id") id: string): Promise<Game> {
+    async getGame(@Param("id", ParseObjectIdPipe) id: string): Promise<IGame> {
         return this.gameService.getById(id);
     }
 
     @Post()
     @HttpCode(HttpStatus.CREATED)
     @Header("Cache-Control", "none")
-    async createGame(@Body() gameDto: GameDto): Promise<Game> {
+    async createGame(@Body() gameDto: CreateGameDto): Promise<IGame> {
         return this.gameService.create(gameDto);
     }
 
     @Delete(":id")
-    async removeGame(@Param("id") id: string): Promise<Game> {
+    async removeGame(@Param("id", ParseObjectIdPipe) id: string): Promise<IGame> {
         return this.gameService.remove(id);
     }
 
     @Put(":id")
-    async updateGame(@Param("id") id: string, @Body() gameDto: GameDto): Promise<Game> {
+    async updateGame(@Param("id", ParseObjectIdPipe) id: string, @Body() gameDto: UpdateGameDto): Promise<IGame> {
         return this.gameService.update(id, gameDto);
     }
 }

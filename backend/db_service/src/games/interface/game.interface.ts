@@ -1,7 +1,6 @@
-import { Types } from "mongoose";
+import { Document, Types } from "mongoose";
 
-export class GameDto {
-    readonly id?: string;
+export interface IGame extends Document {
     readonly name: string;
     readonly contractAddress: string;
     readonly chainId: string;

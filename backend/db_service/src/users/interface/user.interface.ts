@@ -9,5 +9,5 @@ export interface IUser extends Document {
     readonly locale?: string;
     readonly likedGameIds?: string[];
     readonly likedAssetIds?: string[];
-    readonly hasMintedPassport: boolean;
+    readonly passportTokenId: string;
 }

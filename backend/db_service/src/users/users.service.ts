@@ -69,4 +69,64 @@ export class UserService {
 
         return updatedUser;
     }
+
+    async addLikedGame(userId: string, gameId: string): Promise<IUser> {
+        const user = await this.userModel.findById(userId).exec();
+
+        if (!user) {
+            throw new NotFoundException(`User ${userId} not found`);
+        }
+
+        user.likedGameIds.push(gameId);
+
+        return await user.save();
+    }
+
+    async removeLikedGame(userId: string, gameId: string): Promise<IUser> {
+        const user = await this.userModel.findById(userId).exec();
+
+        if (!user) {
+            throw new NotFoundException(`User ${userId} not found`);
+        }
+
+        const idIndex = user.likedGameIds.findIndex(likedGameId => likedGameId.toString() === gameId.toString());
+
+        if (idIndex === -1) {
+            throw new NotFoundException(`Game id ${gameId} not found`);
+        }
+
+        user.likedGameIds.splice(idIndex, 1);
+
+        return await user.save();
+    }
+
+    async addLikedAsset(userId: string, assetId: string): Promise<IUser> {
+        const user = await this.userModel.findById(userId).exec();
+
+        if (!user) {
+            throw new NotFoundException(`User ${userId} not found`);
+        }
+
+        user.likedAssetIds.push(assetId);
+
+        return await user.save();
+    }
+
+    async removeLikedAsset(userId: string, assetId: string): Promise<IUser> {
+        const user = await this.userModel.findById(userId).exec();
+
+        if (!user) {
+            throw new NotFoundException(`User ${userId} not found`);
+        }
+
+        const idIndex = user.likedAssetIds.findIndex(likedAssetId => likedAssetId.toString() === assetId.toString());
+
+        if (idIndex === -1) {
+            throw new NotFoundException(`Asset id ${assetId} not found`);
+        }
+
+        user.likedAssetIds.splice(idIndex, 1);
+
+        return await user.save();
+    }
 }
