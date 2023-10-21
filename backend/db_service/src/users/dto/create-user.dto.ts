@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, IsOptional, IsBoolean } from "class-validator";
+import { IsNotEmpty, IsString, IsOptional } from "class-validator";
 
 export class CreateUserDto {
     @IsString()
@@ -26,7 +26,7 @@ export class CreateUserDto {
     @IsOptional()
     readonly likedAssetIds: string[];
 
-    @IsBoolean()
-    @IsNotEmpty()
-    readonly hasMintedPassport: boolean;
+    @IsString()
+    @IsOptional()
+    readonly passportTokenId: string;
 }

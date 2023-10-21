@@ -30,7 +30,7 @@ export class User {
     likedAssetIds?: string[];
 
     @Prop()
-    hasMintedPassport: boolean;
+    passportTokenId?: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
