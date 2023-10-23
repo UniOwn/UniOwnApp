@@ -1,6 +1,8 @@
 import { Module } from "@nestjs/common";
+import { APP_GUARD } from "@nestjs/core";
 import { MongooseModule } from "@nestjs/mongoose";
 import { ConfigService, ConfigModule } from "@nestjs/config";
+import { ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler";
 
 import { environment } from "./constants";
 import { UsersModule } from "./users/users.module";
@@ -14,6 +16,16 @@ import { GameassetsModule } from "./game-assets/game-assets.module";
             isGlobal: true,
             envFilePath: [".env.development.local"]
         }),
+        ThrottlerModule.forRootAsync({
+            imports: [ConfigModule],
+            inject: [ConfigService],
+            useFactory: async (configService: ConfigService) => [
+                {
+                    ttl: configService.get(environment.throttleTotal),
+                    limit: configService.get(environment.throttleLimit)
+                }
+            ]
+        }),
         CacheConfigModule,
         MongooseModule.forRootAsync({
             imports: [ConfigModule],
@@ -25,6 +37,7 @@ import { GameassetsModule } from "./game-assets/game-assets.module";
         UsersModule,
         GamesModule,
         GameassetsModule
-    ]
+    ],
+    providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }]
 })
 export class AppModule {}
