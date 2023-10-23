@@ -27,6 +27,7 @@
     "@nestjs/mapped-types": "^2.0.2",
     "@nestjs/mongoose": "^9.2.2",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/throttler": "^5.0.0",
     "cache-manager": "^5.2.4",
     "cache-manager-redis-store": "^2.0.0",
     "class-transformer": "^0.5.1",
