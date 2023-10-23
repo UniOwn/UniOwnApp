@@ -1,5 +1,5 @@
-import { ParseObjectIdPipe } from "src/utils";
 import { ApiTags } from "@nestjs/swagger";
+import { ParseObjectIdPipe } from "src/utils";
 import { Body, Controller, Delete, Get, Header, HttpCode, HttpStatus, Param, Post, Put, Patch } from "@nestjs/common";
 
 import { UserService } from "./users.service";
