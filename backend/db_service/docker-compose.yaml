@@ -20,6 +20,8 @@ services:
         ports:
             - "27037-27039:27017-27019"
         restart: unless-stopped
+        env_file:
+            - .env.development.local
         init: true
         volumes:
             - mongodb-data:/data/db
