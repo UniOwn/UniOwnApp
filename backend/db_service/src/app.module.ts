@@ -31,7 +31,10 @@ import { GameassetsModule } from "./game-assets/game-assets.module";
             imports: [ConfigModule],
             inject: [ConfigService],
             useFactory: async (configService: ConfigService) => ({
-                uri: configService.get(environment.mongoConnectionString)
+                uri: configService.get(environment.mongoConnectionString),
+                dbName: configService.get(environment.mongoDatabaseName),
+                user: configService.get(environment.mongoConnectionUserName),
+                pass: configService.get(environment.mongoConnectionPassword)
             })
         }),
         UsersModule,
