@@ -1,13 +1,3 @@
 @import "tailwindcss/base";
-@import "tailwindcss/components";
 @import "tailwindcss/utilities";
-
-body {
-    margin: 0;
-}
-
-.RootLayout_Wrapper {
-    width: 100%;
-    height: 100%;
-    background-color: #111111;
-}
+@import "tailwindcss/components";
