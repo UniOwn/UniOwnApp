@@ -3,7 +3,17 @@ import { IsNotEmpty, IsString, IsOptional } from "class-validator";
 export class CreateUserDto {
     @IsString()
     @IsNotEmpty()
-    readonly nickname: string;
+    readonly address: string;
+
+    @IsString()
+    readonly signature: string;
+
+    @IsString()
+    readonly nonce: string;
+
+    @IsString()
+    @IsOptional()
+    readonly username: string;
 
     @IsOptional()
     readonly photoUrl: string;

@@ -1,7 +1,7 @@
 import { Types } from "mongoose";
 import { ApiTags } from "@nestjs/swagger";
-import { ParseObjectIdPipe } from "src/utils";
-import { Body, Controller, Delete, Get, Header, HttpCode, HttpStatus, Param, Post, Put } from "@nestjs/common";
+import { AccessTokenGuard, ParseObjectIdPipe } from "src/utils";
+import { Body, Controller, Delete, Get, Header, HttpCode, HttpStatus, Param, Post, Put, UseGuards } from "@nestjs/common";
 
 import { GameAssetsService } from "./game-assets.service";
 import { IGameAsset } from "./interface/game-asset.interface";
@@ -40,6 +40,7 @@ export class GameAssetsController {
     }
 
     @Post()
+    @UseGuards(AccessTokenGuard)
     @HttpCode(HttpStatus.CREATED)
     @Header("Cache-Control", "none")
     createGameAsset(@Body() gameAssetDto: CreateGameAssetDto): Promise<IGameAsset> {
@@ -47,11 +48,13 @@ export class GameAssetsController {
     }
 
     @Delete(":id")
+    @UseGuards(AccessTokenGuard)
     removeGameAsset(@Param("id", ParseObjectIdPipe) id: string): Promise<IGameAsset> {
         return this.gameAssetsService.remove(id);
     }
 
     @Put(":id")
+    @UseGuards(AccessTokenGuard)
     updateGameAsset(@Param("id", ParseObjectIdPipe) id: string, @Body() gameAssetDto: UpdateGameAssetDto): Promise<IGameAsset> {
         return this.gameAssetsService.update(id, gameAssetDto);
     }
