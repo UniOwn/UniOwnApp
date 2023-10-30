@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import { ApiTags } from "@nestjs/swagger";
+import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { AccessTokenGuard, ParseObjectIdPipe } from "src/utils";
 import { Body, Controller, Delete, Get, Header, HttpCode, HttpStatus, Param, Post, Put, UseGuards } from "@nestjs/common";
 
@@ -8,6 +8,7 @@ import { IGame } from "./interface/game.interface";
 import { CreateGameDto } from "./dto/create-game.dto";
 import { UpdateGameDto } from "./dto/update-game.dto";
 
+@ApiBearerAuth()
 @ApiTags("games")
 @Controller("games")
 export class GamesController {
