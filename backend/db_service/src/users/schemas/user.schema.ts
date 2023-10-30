@@ -6,7 +6,16 @@ export type UserDocument = User & Document;
 @Schema({ timestamps: true, toJSON: { virtuals: true }, toObject: { virtuals: true } })
 export class User {
     @Prop()
-    nickname: string;
+    address: string;
+
+    @Prop()
+    signature?: string;
+
+    @Prop()
+    nonce?: string;
+
+    @Prop()
+    username?: string;
 
     @Prop()
     photoUrl?: string;

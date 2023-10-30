@@ -13,8 +13,7 @@ import { CacheService } from "./cache.service";
             inject: [ConfigService],
             useFactory: (configService: ConfigService) => ({
                 store: redisStore,
-                url: configService.get(environment.redisConnectionString),
-                ttl: configService.get(environment.redisCache)
+                url: configService.get(environment.redisConnectionString)
             })
         }),
         ConfigModule

@@ -5,6 +5,7 @@ import { ConfigService, ConfigModule } from "@nestjs/config";
 import { ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler";
 
 import { environment } from "./constants";
+import { AuthModule } from "./auth/auth.module";
 import { UsersModule } from "./users/users.module";
 import { GamesModule } from "./games/games.module";
 import { CacheConfigModule } from "./cache/cache.module";
@@ -37,6 +38,7 @@ import { GameassetsModule } from "./game-assets/game-assets.module";
                 pass: configService.get(environment.mongoConnectionPassword)
             })
         }),
+        AuthModule,
         UsersModule,
         GamesModule,
         GameassetsModule
