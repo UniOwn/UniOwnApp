@@ -3,7 +3,7 @@ import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 import { InjectedConnector } from "wagmi/connectors/injected";
 
-import { goerli } from "../chains/chains";
+import { goerli } from "../chains/chains.config";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
     [goerli],
