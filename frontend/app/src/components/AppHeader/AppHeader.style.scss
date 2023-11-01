@@ -3,5 +3,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 26px 0;
+    padding: 20px 0;
+
+    &-Logo {
+        width: 43px;
+        height: 50px;
+    }
 }
