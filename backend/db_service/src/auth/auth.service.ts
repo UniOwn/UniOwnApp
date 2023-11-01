@@ -9,9 +9,9 @@ import { CreateUserDto } from "src/users/dto/create-user.dto";
 import { BadRequestException, ForbiddenException, Injectable, NotFoundException } from "@nestjs/common";
 
 import { AuthDto } from "./dto/auth.dto";
-import { IJWTPayload } from "./interface/jwt-payload.interface";
-import { ISignUpResponse } from "./interface/sign-up-response.interface";
-import { ICachedRefreshToken, IJWTTokens } from "./interface/jwt-tokens.interface";
+import { IJWTPayload } from "./interface/jwt-payload/jwt-payload.interface";
+import { IAuthResponse } from "./interface/auth-response/auth-response.interface";
+import { ICachedRefreshToken } from "./interface/cached-refresh-token/cached-refresh-token.interface";
 
 @Injectable()
 export class AuthService {
@@ -22,7 +22,7 @@ export class AuthService {
         private configService: ConfigService
     ) {}
 
-    async signUp(userDto: CreateUserDto): Promise<ISignUpResponse> {
+    async signUp(userDto: CreateUserDto): Promise<IAuthResponse> {
         const user = await this.usersService.getByAddress(userDto.address);
 
         if (user) {
@@ -33,13 +33,10 @@ export class AuthService {
 
         const tokens = await this.generateTokens(newUser);
 
-        return {
-            userId: newUser.id,
-            tokens
-        };
+        return tokens;
     }
 
-    async signIn(authDto: AuthDto): Promise<IJWTTokens> {
+    async signIn(authDto: AuthDto): Promise<IAuthResponse> {
         const user = await this.usersService.getByAddress(authDto.address);
 
         if (!user) {
@@ -51,7 +48,7 @@ export class AuthService {
         return tokens;
     }
 
-    async refreshToken(address: string, refreshToken: string): Promise<IJWTTokens> {
+    async refreshToken(address: string, refreshToken: string): Promise<IAuthResponse> {
         const user = await this.usersService.getByAddress(address);
 
         if (!user) {
@@ -72,31 +69,27 @@ export class AuthService {
         return tokens;
     }
 
-    async generateTokens(user: IUser): Promise<IJWTTokens> {
+    async generateTokens(user: IUser): Promise<IAuthResponse> {
         const payload: IJWTPayload = { address: user.address, nonce: user.nonce };
 
-        const tokens: IJWTTokens = {
-            access: {
-                token: await this.jwtService.signAsync(payload, {
-                    expiresIn: "20m",
-                    secret: this.configService.get(environment.jwtAccessSecret)
-                }),
-                expiresIn: new Date().setMinutes(new Date().getMinutes() + 20)
-            },
-            refresh: {
-                token: await this.jwtService.signAsync(payload, {
-                    expiresIn: "7d",
-                    secret: this.configService.get(environment.jwtRefreshSecret)
-                }),
-                expiresIn: new Date().setDate(new Date().getDate() + 7)
-            }
+        const tokens: IAuthResponse = {
+            id: user?.id,
+            access_token: await this.jwtService.signAsync(payload, {
+                expiresIn: "20m",
+                secret: this.configService.get(environment.jwtAccessSecret)
+            }),
+            expires_at: new Date().setMinutes(new Date().getMinutes() + 20),
+            refresh_token: await this.jwtService.signAsync(payload, {
+                expiresIn: "7d",
+                secret: this.configService.get(environment.jwtRefreshSecret)
+            })
         };
 
         const salt = await genSalt(10);
 
         await this.cacheService.set<ICachedRefreshToken>(
             cache.refreshToken(user.id),
-            { userId: user.id, refreshToken: await hash(tokens.refresh.token, salt) },
+            { userId: user.id, refreshToken: await hash(tokens.refresh_token, salt) },
             cache.refreshTokenExpiration
         );
 
