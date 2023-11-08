@@ -9,16 +9,16 @@ export class GameAsset {
     name: string;
 
     @Prop()
-    contractAddress: string;
+    price: number;
+
+    @Prop()
+    chainId: string;
 
     @Prop()
     tokenId: string;
 
     @Prop()
-    price: number;
-
-    @Prop()
-    chainId: string;
+    contractAddress: string;
 
     @Prop()
     gameId?: Types.ObjectId;

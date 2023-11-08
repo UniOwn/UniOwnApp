@@ -1,8 +1,8 @@
 import { Module } from "@nestjs/common";
-import { CacheModule } from "@nestjs/cache-manager";
-import * as redisStore from "cache-manager-redis-store";
-import { ConfigModule, ConfigService } from "@nestjs/config";
 import { environment } from "src/constants";
+import { CacheModule } from "@nestjs/cache-manager";
+import { redisStore } from "cache-manager-redis-yet";
+import { ConfigModule, ConfigService } from "@nestjs/config";
 
 import { CacheService } from "./cache.service";
 
@@ -11,9 +11,11 @@ import { CacheService } from "./cache.service";
         CacheModule.registerAsync({
             imports: [ConfigModule],
             inject: [ConfigService],
-            useFactory: (configService: ConfigService) => ({
-                store: redisStore,
-                url: configService.get(environment.redisConnectionString)
+            useFactory: async (configService: ConfigService) => ({
+                store: await redisStore({
+                    ttl: configService.get(environment.redisTTL),
+                    url: configService.get(environment.redisConnectionString)
+                })
             })
         }),
         ConfigModule

@@ -1,6 +1,6 @@
 import { Chain } from "wagmi";
 
-import { parseEnvVariable } from "@/utils/utils";
+import { parseEnvVariable } from "@/utils/parse-env-variable";
 
 export const mantle: Chain = {
     id: 5001,

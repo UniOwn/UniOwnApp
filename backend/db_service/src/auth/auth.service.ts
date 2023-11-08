@@ -1,8 +1,8 @@
+import { Model, Types } from "mongoose";
 import { JwtService } from "@nestjs/jwt";
+import { InjectModel } from "@nestjs/mongoose";
 import { ConfigService } from "@nestjs/config";
-import { compare, hash, genSalt } from "bcrypt";
 import { cache, environment } from "src/constants";
-import { CacheService } from "src/cache/cache.service";
 import { UsersService } from "src/users/users.service";
 import { IUser } from "src/users/interface/user.interface";
 import { CreateUserDto } from "src/users/dto/create-user.dto";
@@ -12,14 +12,15 @@ import { AuthDto } from "./dto/auth.dto";
 import { IJWTPayload } from "./interface/jwt-payload/jwt-payload.interface";
 import { IAuthResponse } from "./interface/auth-response/auth-response.interface";
 import { ICachedRefreshToken } from "./interface/cached-refresh-token/cached-refresh-token.interface";
+import { CachedRefreshToken } from "./schemas/cached-refresh-token.schema";
 
 @Injectable()
 export class AuthService {
     constructor(
         private jwtService: JwtService,
-        private cacheService: CacheService,
         private usersService: UsersService,
-        private configService: ConfigService
+        private configService: ConfigService,
+        @InjectModel(CachedRefreshToken.name) private cachedRefreshTokenModel: Model<ICachedRefreshToken>
     ) {}
 
     async signUp(userDto: CreateUserDto): Promise<IAuthResponse> {
@@ -55,12 +56,13 @@ export class AuthService {
             throw new NotFoundException("User does not exist");
         }
 
-        const cachedRefreshToken = await this.cacheService.get<ICachedRefreshToken>(cache.refreshToken(user.id));
+        const cachedRefreshToken = await this.cachedRefreshTokenModel
+            .findOne({ userId: Types.ObjectId.createFromHexString(user.id), token: refreshToken })
+            .exec();
 
-        if (
-            !cachedRefreshToken ||
-            !(cachedRefreshToken.userId === user.id && (await compare(refreshToken, cachedRefreshToken.refreshToken)))
-        ) {
+        if (!cachedRefreshToken || cachedRefreshToken?.expiresAt < new Date().getTime()) {
+            cachedRefreshToken?.id && (await this.cachedRefreshTokenModel.findByIdAndDelete(cachedRefreshToken.id).exec());
+
             throw new ForbiddenException("Access denied");
         }
 
@@ -85,13 +87,13 @@ export class AuthService {
             })
         };
 
-        const salt = await genSalt(10);
+        await this.cachedRefreshTokenModel.deleteMany({ userId: Types.ObjectId.createFromHexString(user.id) }).exec();
 
-        await this.cacheService.set<ICachedRefreshToken>(
-            cache.refreshToken(user.id),
-            { userId: user.id, refreshToken: await hash(tokens.refresh_token, salt) },
-            cache.refreshTokenExpiration
-        );
+        await this.cachedRefreshTokenModel.create({
+            userId: Types.ObjectId.createFromHexString(user.id),
+            token: tokens.refresh_token,
+            expiresAt: new Date().getTime() + cache.refreshTokenExpiration
+        });
 
         return tokens;
     }

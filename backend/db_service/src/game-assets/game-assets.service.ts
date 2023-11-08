@@ -31,16 +31,6 @@ export class GameAssetsService {
         return newGameAsset;
     }
 
-    async remove(id: string): Promise<IGameAsset> {
-        const deletedGameAsset = await this.gameAssetModel.findByIdAndRemove(id).exec();
-
-        if (!deletedGameAsset) {
-            throw new NotFoundException(`Game asset ${id} not found`);
-        }
-
-        return deletedGameAsset;
-    }
-
     async update(id: string, gameAssetDto: UpdateGameAssetDto): Promise<IGameAsset> {
         const updatedGameAsset = await this.gameAssetModel.findByIdAndUpdate(id, gameAssetDto).exec();
 
@@ -49,5 +39,15 @@ export class GameAssetsService {
         }
 
         return updatedGameAsset;
+    }
+
+    async remove(id: string): Promise<IGameAsset> {
+        const deletedGameAsset = await this.gameAssetModel.findByIdAndRemove(id).exec();
+
+        if (!deletedGameAsset) {
+            throw new NotFoundException(`Game asset ${id} not found`);
+        }
+
+        return deletedGameAsset;
     }
 }

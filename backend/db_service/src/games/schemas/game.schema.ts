@@ -9,9 +9,6 @@ export class Game {
     name: string;
 
     @Prop()
-    contractAddress: string;
-
-    @Prop()
     chainId: string;
 
     @Prop()
@@ -19,6 +16,9 @@ export class Game {
 
     @Prop()
     ownerId: Types.ObjectId;
+
+    @Prop()
+    contractAddress: string;
 }
 
 export const GameSchema = SchemaFactory.createForClass(Game);

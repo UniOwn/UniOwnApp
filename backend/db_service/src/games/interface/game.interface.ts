@@ -1,9 +1,12 @@
-import { Document, Types } from "mongoose";
+import { Document } from "mongoose";
 
 export interface IGame extends Document {
     readonly name: string;
-    readonly contractAddress: string;
     readonly chainId: string;
+    readonly isLiked: boolean;
     readonly imageLink: string;
-    readonly ownerId: Types.ObjectId;
+    readonly ownerName: string;
+    readonly assetsCount: number;
+    readonly isFeatured?: boolean;
+    readonly contractAddress: string;
 }

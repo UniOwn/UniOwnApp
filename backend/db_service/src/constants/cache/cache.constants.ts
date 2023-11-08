@@ -1,6 +1,5 @@
 const cache = {
-    refreshTokenExpiration: 604800000,
-    refreshToken: (userId: string) => `${userId}-refresh-token`
+    refreshTokenExpiration: 604800000
 };
 
 export default cache;
