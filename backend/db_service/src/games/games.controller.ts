@@ -16,13 +16,13 @@ export class GamesController {
 
     @Get("/create-games-dev/:ownerId")
     createGamesDev(@Param("ownerId") ownerId: string): boolean {
-        [...new Array(5)].forEach((_, i) => {
+        [...new Array(20)].forEach((_, i) => {
             this.gameService.create({
                 name: `Game ${i}`,
-                contractAddress: "0xcontractAddress",
                 chainId: "0xchainId",
-                imageLink: "https://axieinfinity.com/images/templates/home/news/new-releases-in-project-t.jpg",
-                ownerId: Types.ObjectId.createFromHexString(ownerId)
+                contractAddress: "0xcontractAddress",
+                ownerId: Types.ObjectId.createFromHexString(ownerId),
+                imageLink: "https://axieinfinity.com/images/templates/home/infinite-experiences/breeding.jpg"
             });
         });
 

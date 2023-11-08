@@ -5,7 +5,7 @@ import { NextAuthOptions } from "next-auth";
 import { getCsrfToken } from "next-auth/react";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-import { environment } from "@/config";
+import { environment, errors } from "@/config";
 import { IAuthResponse } from "@/models/auth-response/auth-response.interface";
 
 const login = async (address: string, nonce: string, signature: string): Promise<IAuthResponse | null> => {
@@ -28,17 +28,27 @@ const login = async (address: string, nonce: string, signature: string): Promise
 };
 
 const refreshToken = async (token: string): Promise<JWT> => {
-    const url = `${environment.backendUrl}/auth/refresh`;
-    const response = await fetch(url, {
-        method: "GET",
-        headers: {
-            authorization: `Bearer ${token}`
+    try {
+        const url = `${environment.backendUrl}/auth/refresh`;
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {
+                authorization: `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(response.statusText);
         }
-    });
 
-    const tokens: IAuthResponse = await response.json();
+        const tokens: IAuthResponse = await response.json();
 
-    return tokens;
+        return tokens;
+    } catch (err) {
+        return {
+            error: errors.refreshAccessTokenError
+        };
+    }
 };
 
 export const authOptions: NextAuthOptions = {
@@ -84,7 +94,7 @@ export const authOptions: NextAuthOptions = {
         async jwt({ token, user }) {
             const tokens = token as IAuthResponse;
 
-            if (user) return { ...token, ...user };
+            if (user) return { ...user, ...tokens };
 
             if (new Date().getTime() < tokens.expires_at) return token;
 
@@ -92,9 +102,9 @@ export const authOptions: NextAuthOptions = {
         },
 
         async session({ token, session }) {
-            const { id, ...tokens } = token;
+            const { id, error, ...tokens } = token;
 
-            return { ...session, userId: id, tokens: tokens };
+            return { ...session, userId: id, error: error, ...tokens };
         }
     }
 };

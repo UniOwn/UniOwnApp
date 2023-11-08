@@ -1,12 +1,13 @@
 "use client";
 
 import { SiweMessage } from "siwe";
+import { Button } from "@nextui-org/react";
 import { useCallback, useEffect, useState } from "react";
 import { getCsrfToken, signIn, signOut } from "next-auth/react";
 import { useAccount, useConnect, useDisconnect, useNetwork, useSignMessage } from "wagmi";
 
+import { getShortAddress } from "@/utils";
 import withWagmi from "@/shared/hocs/wagmi/withWagmi";
-import { getShortAddress } from "@/utils/utils";
 
 import "./ConnectToWallet.style.scss";
 
@@ -63,13 +64,13 @@ const ConnectWalletButton = () => {
     return (
         <>
             {isWalletConnected ? (
-                <div className="Metamask Connected" onClick={onDisconnect}>
+                <Button className="Metamask Connected" onClick={onDisconnect}>
                     <div className="Address">{getShortAddress(address)}</div>
-                </div>
+                </Button>
             ) : (
-                <div className="Metamask Disconnected" onClick={onConnect}>
+                <Button className="Metamask Disconnected" onClick={onConnect}>
                     Connect To Metamask
-                </div>
+                </Button>
             )}
         </>
     );

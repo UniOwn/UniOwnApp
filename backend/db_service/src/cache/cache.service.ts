@@ -13,4 +13,8 @@ export class CacheService {
     async set<T>(key: string, value: T, ttl?: number): Promise<void> {
         return await this.cacheManager.set(key, value, ttl);
     }
+
+    async delete(key: string): Promise<void> {
+        return await this.cacheManager.del(key);
+    }
 }

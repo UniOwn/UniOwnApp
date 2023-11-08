@@ -21,6 +21,22 @@ export class GamesService {
                         foreignField: "_id",
                         as: "owner"
                     }
+                },
+                {
+                    $unwind: {
+                        path: "$owner"
+                    }
+                },
+                { $set: { id: "$_id" } },
+                {
+                    $project: {
+                        id: 1,
+                        name: 1,
+                        chainId: 1,
+                        imageLink: 1,
+                        contractAddress: 1,
+                        ownerName: "$owner.username"
+                    }
                 }
             ])
             .exec();
@@ -42,16 +58,6 @@ export class GamesService {
         return newGame;
     }
 
-    async remove(id: string): Promise<IGame> {
-        const deletedGame = await this.gameModel.findByIdAndRemove(id).exec();
-
-        if (!deletedGame) {
-            throw new NotFoundException(`Game ${id} not found`);
-        }
-
-        return deletedGame;
-    }
-
     async update(id: string, gameDto: UpdateGameDto): Promise<IGame> {
         const updatedGame = await this.gameModel.findByIdAndUpdate(id, gameDto).exec();
 
@@ -60,5 +66,15 @@ export class GamesService {
         }
 
         return updatedGame;
+    }
+
+    async remove(id: string): Promise<IGame> {
+        const deletedGame = await this.gameModel.findByIdAndRemove(id).exec();
+
+        if (!deletedGame) {
+            throw new NotFoundException(`Game ${id} not found`);
+        }
+
+        return deletedGame;
     }
 }

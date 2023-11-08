@@ -1,6 +1,6 @@
 import { Model } from "mongoose";
-import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
+import { Injectable, NotFoundException } from "@nestjs/common";
 
 import { User } from "./schemas/user.schema";
 import { IUser } from "./interface/user.interface";
@@ -56,16 +56,6 @@ export class UsersService {
         return newUser;
     }
 
-    async remove(id: string): Promise<IUser> {
-        const deletedUser = await this.userModel.findByIdAndRemove(id).exec();
-
-        if (!deletedUser) {
-            throw new NotFoundException(`User ${id} not found`);
-        }
-
-        return deletedUser;
-    }
-
     async update(id: string, userDto: UpdateUserDto): Promise<IUser> {
         const updatedUser = await this.userModel.findByIdAndUpdate(id, userDto).exec();
 
@@ -74,6 +64,16 @@ export class UsersService {
         }
 
         return updatedUser;
+    }
+
+    async remove(id: string): Promise<IUser> {
+        const deletedUser = await this.userModel.findByIdAndRemove(id).exec();
+
+        if (!deletedUser) {
+            throw new NotFoundException(`User ${id} not found`);
+        }
+
+        return deletedUser;
     }
 
     async addLikedGame(userId: string, gameId: string): Promise<IUser> {
